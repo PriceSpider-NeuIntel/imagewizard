@@ -1,0 +1,13 @@
+{
+    "author_name": "Swaroop Padala",
+    "author_email": "soupspring47@gmail.com",
+
+    "package_name": "imagewizard",
+    "package_version": "0.1.0",
+    "package_description": "A python image library for performing few types of image hashing, hash distancing, image transformations.",
+    "package_url": "",
+    
+    "readme_pypi_badge": true,
+    "readme_travis_badge": true,
+    "readme_travis_url": ""
+}
