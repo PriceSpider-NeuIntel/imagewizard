@@ -1,19 +1,6 @@
-{{ imagewizard }}
-{{ imagewizard|count * "=" }}
+imagewizard
 
-{% if imagewizard.readme_pypi_badge -%}
-.. image:: https://img.shields.io/pypi/v/{{ imagewizard }}.svg
-    :target: https://pypi.python.org/pypi/{{ imagewizard }}
-    :alt: Latest PyPI version
-{%- endif %}
-
-{% if imagewizard.readme_travis_badge -%}
-.. image:: {{ imagewizard.readme_travis_url }}.png
-   :target: {{ imagewizard.readme_travis_url }}
-   :alt: Latest Travis CI build status
-{%- endif %}
-
-{{ imagewizard.package_description }}
+A python image library for performing few types of image hashing, hash distancing, image transformations.
 
 Usage
 -----
