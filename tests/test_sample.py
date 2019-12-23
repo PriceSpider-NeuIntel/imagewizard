@@ -15,8 +15,8 @@ def test_hamming():
     a_hex, b_hex = '0x4bd1', ['0x5bd2', '0x4bd1', '5', '0b1001']
     a_int, b_int = '4bd1', ['5bd2', 0x4bd1]
 
-    print(imagewizard.similarity_measure(a_hex, b_hex))
-    print(imagewizard.similarity_measure(a_int, b_int, metric="hamming"))
+    print(imagewizard.similarity(a_hex, b_hex))
+    print(imagewizard.similarity(a_int, b_int, metric="hamming"))
 
 if __name__=="__main__":
     test_hamming()

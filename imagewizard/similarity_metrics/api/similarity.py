@@ -1,6 +1,6 @@
 from imagewizard.similarity_metrics.api.distance_algorithms import Similarity, hex_str_to_int
 
-def similarity_measure(value_src: int, value_query: [int], metric: str ="hamming",) -> [int]:
+def similarity(value_src: int, value_query: [int], metric: str ="hamming",) -> [int]:
     """
     The value_src is expected to be an integer or hex or binary or string of hex or binary
 
