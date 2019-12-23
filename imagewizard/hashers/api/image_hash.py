@@ -66,7 +66,6 @@ def hex_to_hash(hexstr):
 	bit_rows = [binary_array[i:i+hash_size] for i in range(0, len(binary_array), hash_size)]
 	hash_array = numpy.array([[bool(int(d)) for d in row] for row in bit_rows])
 	return ImageHash(hash_array)
-	
 
 def old_hex_to_hash(hexstr, hash_size=8):
 	"""
