@@ -24,7 +24,7 @@ def similarity(
     or array of ints
 
     The metric argument is the distance measurement metric. The values can be "hamming", "euclidean",
-    "manhattan", "nroot", "cosine", "sqroot", "jaccard", "minkowski". The default is hamming.
+    "manhattan", "cosine", "jaccard", "minkowski". The default is hamming.
 
     The function returns a similarity measure score for the value_src with every value in the 
     value_query.
@@ -34,6 +34,20 @@ def similarity(
     value_src, value_query = format_value_to_binary_array(
         value_src), format_value_to_binary_array(value_query)
 
-    # hamming distance - similarity measurement
-    if metric == "hamming":
+    if metric == 'hamming' or metric == 'manhattan':
         return measures.manhattan_distance(value_src, value_query)
+    
+    if metric == 'cosine':
+        return measures.cosine_similarity(value_src, value_query)
+
+    if metric == 'euclidean':
+        return measures.euclidean_distance(value_src, value_query)
+
+    if metric == 'jaccard':
+        return measures.jaccard_similarity(value_src, value_query)
+    
+    if metric == 'minkowski' or metric =='min':
+        return measures.minkowski_distance(value_src, value_query)
+    
+    else:
+        raise ValueError("Invalid value '{}' for argument metric".format(metric))
