@@ -14,8 +14,9 @@ class Similarity():
         return manhattan distance between two lists
         x, yi Є {0,1} => Hamming distance 
         """
-
-        return sum(abs(a - b) for a, b in zip(x, y))
+        # if x and y are not of equal length, the difference should be added as cost to insert or delete the bits
+        excess_bits_cost = abs(len(x) - len(y))
+        return sum(abs(a - b) for a, b in zip(x, y)) + excess_bits_cost
 
     def minkowski_distance(self, x, y, p_value):
         """ 
