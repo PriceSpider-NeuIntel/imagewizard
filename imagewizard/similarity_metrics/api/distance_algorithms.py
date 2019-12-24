@@ -18,7 +18,7 @@ class Similarity():
         excess_bits_cost = abs(len(x) - len(y))
         return sum(abs(a - b) for a, b in zip(x, y)) + excess_bits_cost
 
-    def minkowski_distance(self, x, y, p_value):
+    def minkowski_distance(self, x, y, p_value = 3):
         """ 
         return minkowski distance between two lists 
         
