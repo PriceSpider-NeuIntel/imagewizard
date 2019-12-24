@@ -16,8 +16,12 @@ def test_hamming():
     # a_int, b_int = '4bd1', ['5bd2', 0x4bd1]
     # a_bin_list, b_bin_list = [1,0,0,0,1], [0,1,1,0,1]
 
-    print(imagewizard.similarity(a_hex, b_hex))
-    # print(imagewizard.similarity(a_int, b_int, metric="hamming"))
+    print("cosine distance: ", imagewizard.similarity(a_hex, b_hex, "cosine"))
+    print("hamming distance: ", imagewizard.similarity(a_hex, b_hex, "hamming"))
+    print("euclidean distance: ", imagewizard.similarity(a_hex, b_hex, "euclidean"))
+    print("manhattan distance: ", imagewizard.similarity(a_hex, b_hex, "manhattan"))
+    print("jaccard distance: ", imagewizard.similarity(a_hex, b_hex, "jaccard"))
+    print("minkowski distance: ", imagewizard.similarity(a_hex, b_hex, "minkowski"))
 
 if __name__=="__main__":
     test_hamming()
