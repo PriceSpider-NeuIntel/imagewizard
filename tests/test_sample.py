@@ -12,11 +12,12 @@ def test_pass():
     print(a_hash, "\n", d_hash)
 
 def test_hamming():
-    a_hex, b_hex = '0x4bd1', ['0x5bd2', '0x4bd1', '5', '0b1001']
-    a_int, b_int = '4bd1', ['5bd2', 0x4bd1]
+    a_hex, b_hex = 0x4bd1, 5 #, '0x4bd1', '5', '0b1001']
+    # a_int, b_int = '4bd1', ['5bd2', 0x4bd1]
+    # a_bin_list, b_bin_list = [1,0,0,0,1], [0,1,1,0,1]
 
     print(imagewizard.similarity(a_hex, b_hex))
-    print(imagewizard.similarity(a_int, b_int, metric="hamming"))
+    # print(imagewizard.similarity(a_int, b_int, metric="hamming"))
 
 if __name__=="__main__":
     test_hamming()
