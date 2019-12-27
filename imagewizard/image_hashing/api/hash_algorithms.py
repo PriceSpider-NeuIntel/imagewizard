@@ -1,4 +1,4 @@
-from imagewizard.hashers.api.image_hash import ImageHash, Image, numpy
+from imagewizard.image_hashing.api.image_hash import ImageHash, Image, numpy
 
 
 def ahash(image, hash_size=8):

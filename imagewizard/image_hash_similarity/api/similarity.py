@@ -1,4 +1,4 @@
-from imagewizard.similarity_metrics.api.distance_algorithms import Similarity, hex_str_to_int
+from imagewizard.image_hash_similarity.api.distance_algorithms import Similarity, hex_str_to_int
 
 
 def format_value_to_binary_array(value) -> ([int]):
@@ -36,7 +36,7 @@ def similarity(
 
     if metric == 'hamming' or metric == 'manhattan':
         return measures.manhattan_distance(value_src, value_query)
-    
+
     if metric == 'cosine':
         return measures.cosine_similarity(value_src, value_query)
 
@@ -45,9 +45,10 @@ def similarity(
 
     if metric == 'jaccard':
         return measures.jaccard_similarity(value_src, value_query)
-    
-    if metric == 'minkowski' or metric =='min':
+
+    if metric == 'minkowski' or metric == 'min':
         return measures.minkowski_distance(value_src, value_query)
-    
+
     else:
-        raise ValueError("Invalid value '{}' for argument metric".format(metric))
+        raise ValueError(
+            "Invalid value '{}' for argument 'metric'".format(metric))
