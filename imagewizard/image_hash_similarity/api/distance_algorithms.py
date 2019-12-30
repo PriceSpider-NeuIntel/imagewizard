@@ -29,8 +29,8 @@ class DistanceAlgorithms():
         w is a weighting factor which is set to ‘1’ when computing Euclidean/Hamming distances
         """
 
-        return self.nth_root(
-            sum(pow(abs(a - b), p_value) for a, b in zip(x, y)), p_value)
+        return float(self.nth_root(
+            sum(pow(abs(a - b), p_value) for a, b in zip(x, y)), p_value))
 
     def nth_root(self, value, n_root):
         """ returns the n_root of an value """
