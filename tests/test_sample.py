@@ -12,11 +12,12 @@ def test_hashing():
     a_hash = ihash.ahash(Image.open('data/test.png'))
     d_hash = ihash.dhash(Image.open('data/test.png'))
     p_hash = ihash.phash(Image.open('data/test.png'))
-    w_hash = ihash.whash(Image.open('data/test.png'))
-    print("a hash: ", a_hash, "\nd hash: ", d_hash, "\nphash: ", p_hash, "\nwhash: ", w_hash)
+    # w_hash = ihash.whash(Image.open('data/test.png'))
+    w_hash = ihash.whash(cv.imread('data/test.png'))
+    print("a hash: ", str(a_hash), "\nd hash: ", d_hash, "\nphash: ", p_hash, "\nwhash: ", w_hash)
 
-def test_hamming():
-    a_hex, b_hex = 0x4bd1, 5 #, '0x4bd1', '5', '0b1001']
+def test_similarity():
+    a_hex, b_hex = [0, 1, 1, 0, 1], [1, 0, 0, 0, 1, 0, 0]# 0x4bd1, 5 #, '0x4bd1', '5', '0b1001']
     # a_int, b_int = '4bd1', ['5bd2', 0x4bd1]
     # a_bin_list, b_bin_list = [1,0,0,0,1], [0,1,1,0,1]
     isim = imagewizard.Similarity()
@@ -38,7 +39,4 @@ def test_colorspaces():
     cv.destroyAllWindows()
 
 if __name__=="__main__":
-    # test_hamming()
-    # test_colorspaces()
-    test_hashing()
-
+    test_colorspaces()
