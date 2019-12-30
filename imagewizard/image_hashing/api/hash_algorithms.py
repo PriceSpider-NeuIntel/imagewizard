@@ -195,6 +195,7 @@ def whash(image,
     diff = dwt_low > med
     return ImageHash(diff)
 
+# LEGACY CODE
 def hex_to_hash(hexstr):
     """
 	Convert a stored hash (hex, as retrieved from str(Imagehash))
