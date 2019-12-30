@@ -11,7 +11,9 @@ def test_hashing():
     ihash = imagewizard.Hashing()
     a_hash = ihash.ahash(Image.open('data/test.png'))
     d_hash = ihash.dhash(Image.open('data/test.png'))
-    print(a_hash, "\n", d_hash)
+    p_hash = ihash.phash(Image.open('data/test.png'))
+    w_hash = ihash.whash(Image.open('data/test.png'))
+    print("a hash: ", a_hash, "\nd hash: ", d_hash, "\nphash: ", p_hash, "\nwhash: ", w_hash)
 
 def test_hamming():
     a_hex, b_hex = 0x4bd1, 5 #, '0x4bd1', '5', '0b1001']
@@ -37,6 +39,6 @@ def test_colorspaces():
 
 if __name__=="__main__":
     # test_hamming()
-    test_colorspaces()
-    # test_hashing()
+    # test_colorspaces()
+    test_hashing()
 
