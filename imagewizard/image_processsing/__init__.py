@@ -1,1 +1,3 @@
-from imagewizard.image_processsing.api.processing import *
+from imagewizard.image_processsing.api.processing import Processing
+
+__all__ = ['Processing']

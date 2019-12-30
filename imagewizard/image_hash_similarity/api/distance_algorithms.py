@@ -1,8 +1,9 @@
 from math import sqrt, pow
 from decimal import Decimal
 from imagewizard.helpers import hex_str_to_int
+""" Class containing methods to calculate distances between image hashes """
 
-class Similarity():
+class DistanceAlgorithms():
     """ Five similarity measures function """
     def euclidean_distance(self, x, y):
         """ return euclidean distance between two lists """
@@ -72,9 +73,9 @@ def hamming_distance(hash_src: int, hash_target: [int]) -> list:
     num_bits_different_list = []
 
     # perform XOR on hash_src and hash_target to get hamming distance
-    for hash in hash_target:
-        if isinstance(hash, str):
-            hash = hex_str_to_int(hash)
-        num_bits_different_list.append(bin(hash_src ^ hash).count('1'))
+    for _hash in hash_target:
+        if isinstance(_hash, str):
+            _hash = hex_str_to_int(_hash)
+        num_bits_different_list.append(bin(hash_src ^ _hash).count('1'))
 
     return num_bits_different_list
