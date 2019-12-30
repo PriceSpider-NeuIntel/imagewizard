@@ -8,7 +8,7 @@ with open(os.path.join(os.path.abspath(os.path.dirname(__file__)),
 """ Class containing method to perform various hashing on image """
 
 class Hashing():
-    def ahash(self, image, hash_size: int = 8):
+    def ahash(self, image, hash_size: int = 8, order: str = 'rgb'):
         """
 		Average Hash computation
 		Implementation follows http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
@@ -17,10 +17,10 @@ class Hashing():
 
 		@image must be a PIL instance image or numpy array RGB.
 		"""
-        image = helpers.format_image_for_hashing(image)
+        image = helpers.format_image_for_hashing(image, order)
         return ahash(image, hash_size)
 
-    def dhash(self, image, hash_size=8):
+    def dhash(self, image, hash_size=8, order: str = 'rgb'):
         """
 		Difference Hash computation.
 		following http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html
@@ -28,10 +28,10 @@ class Hashing():
 
 		@image must be a PIL instance image or numpy array RGB.
 		"""
-        image = helpers.format_image_for_hashing(image)
+        image = helpers.format_image_for_hashing(image, order)
         return dhash(image, hash_size)
 
-    def dhash_vertical(self, image, hash_size=8):
+    def dhash_vertical(self, image, hash_size=8, order: str = 'rgb'):
         """
 		Difference Hash computation.
 		following http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html
@@ -39,27 +39,27 @@ class Hashing():
 
 		@image must be a PIL instance image or numpy array RGB.
 		"""
-        image = helpers.format_image_for_hashing(image)
+        image = helpers.format_image_for_hashing(image, order)
         return dhash_vertical(image, hash_size)
 
-    def phash(self, image, hash_size=8, highfreq_factor=4):
+    def phash(self, image, hash_size=8, highfreq_factor=4, order: str = 'rgb'):
         """
 		Perceptual Hash computation.
 		Implementation follows http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
 
 		@image must be a PIL instance image or numpy array RGB.
 		"""
-        image = helpers.format_image_for_hashing(image)
+        image = helpers.format_image_for_hashing(image, order)
         return phash(image, hash_size, highfreq_factor)
 
-    def phash_simple(self, image, hash_size=8, highfreq_factor=4):
+    def phash_simple(self, image, hash_size=8, highfreq_factor=4, order: str = 'rgb'):
         """
 		Perceptual Hash computation.
 		Implementation follows http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
 
 		@image must be a PIL instance image or numpy array RGB.
 		"""
-        image = helpers.format_image_for_hashing(image)
+        image = helpers.format_image_for_hashing(image, order)
         return phash_simple(image, hash_size, highfreq_factor)
 
     def whash(self,
@@ -67,7 +67,8 @@ class Hashing():
               hash_size=8,
               image_scale=None,
               mode='haar',
-              remove_max_haar_ll=True):
+              remove_max_haar_ll=True,
+			  order: str = 'rgb'):
         """
 		Wavelet Hash computation.
 
@@ -82,5 +83,5 @@ class Hashing():
 			'db4' - Daubechies wavelets
 		@remove_max_haar_ll - remove the lowest low level (LL) frequency using Haar wavelet.
 		"""
-        image = helpers.format_image_for_hashing(image)
+        image = helpers.format_image_for_hashing(image, order)
         return whash(image, hash_size, image_scale, mode, remove_max_haar_ll)

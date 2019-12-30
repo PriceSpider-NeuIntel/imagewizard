@@ -35,9 +35,12 @@ def hash_to_binary_array(value) -> ([int]):
     return (value)
 
 
-def format_image_for_hashing(image):
-    if isinstance(image, np.ndarray):
-        return PIL.Image.fromarray(image)
+def format_image_for_hashing(image, order):
+    if isinstance(image, np.ndarray) and order.lower() in ['bgr', 'rgb']:
+        if order.lower() == 'bgr':            
+            return PIL.Image.fromarray(BGR2RGB(image))
+        else:
+            return PIL.Image.fromarray(image)
     elif isinstance(image, PIL.JpegImagePlugin.JpegImageFile) or isinstance(
             image, PIL.Image.Image):
         return image
