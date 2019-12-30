@@ -10,7 +10,7 @@ class DistanceAlgorithms():
 
         return sqrt(sum(pow(a - b, 2) for a, b in zip(x, y)))
 
-    def manhattan_distance(self, x, y):
+    def manhattan_distance(self, x: ([int]), y: ([int])) -> float:
         """ 
         return manhattan distance between two lists
         x, yi Є {0,1} => Hamming distance 
@@ -19,10 +19,9 @@ class DistanceAlgorithms():
         excess_bits_cost = abs(len(x) - len(y))
         return sum(abs(a - b) for a, b in zip(x, y)) + excess_bits_cost
 
-    def minkowski_distance(self, x, y, p_value = 3):
+    def minkowski_distance(self, x: ([int]), y: ([int]), p_value: int = 3) -> float:
         """ 
-        return minkowski distance between two lists 
-        
+        return minkowski distance between two lists
         https://www.gaussianwaves.com/2008/12/distance-hamming-vs-euclidean/
         P=1 => Manhattan Distance
         P=2 => Euclidean distance
@@ -39,7 +38,7 @@ class DistanceAlgorithms():
         root_value = 1 / float(n_root)
         return round(Decimal(value)**Decimal(root_value), 3)
 
-    def cosine_similarity(self, x, y):
+    def cosine_similarity(self, x: ([int]), y:([int])) -> float:
         """ return cosine similarity between two lists """
 
         numerator = sum(a * b for a, b in zip(x, y))
@@ -51,7 +50,7 @@ class DistanceAlgorithms():
 
         return round(sqrt(sum([a * a for a in x])), 3)
 
-    def jaccard_similarity(self, x, y):
+    def jaccard_similarity(self, x: ([int]), y: ([int])) -> float:
         """ returns the jaccard similarity between two lists """
 
         intersection_cardinality = len(set.intersection(*[set(x), set(y)]))

@@ -35,6 +35,17 @@ def hash_to_binary_array(value) -> ([int]):
     return (value)
 
 
+def format_image_for_hashing(image):
+    if isinstance(image, np.ndarray):
+        return PIL.Image.fromarray(image)
+    elif isinstance(image, PIL.JpegImagePlugin.JpegImageFile) or isinstance(
+            image, PIL.Image.Image):
+        return image
+    else:
+        raise ValueError(
+            'parameter image is not a PIL image, cv2 image or numpy array')
+
+
 ###############################################
 # Helper functions for image processing methods
 ###############################################

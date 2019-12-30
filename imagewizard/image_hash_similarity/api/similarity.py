@@ -1,6 +1,6 @@
 from imagewizard.image_hash_similarity.api.distance_algorithms import DistanceAlgorithms
 from imagewizard.helpers.helpers import hash_to_binary_array
-""" Class containing method to find various distances between image hashes """
+""" Class containing method to calculate various distances between image hashes """
 
 class Similarity():
     def similarity(

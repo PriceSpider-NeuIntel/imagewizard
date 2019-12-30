@@ -6,9 +6,9 @@ sys.path.append("..")
 import imagewizard
 from PIL import Image
 
-def test_pass():
+def test_hashing():
     # assert True, "dummy sample test"
-    ihash = imagewizard.ImageHashing()
+    ihash = imagewizard.Hashing()
     a_hash = ihash.ahash(Image.open('data/test.png'))
     d_hash = ihash.dhash(Image.open('data/test.png'))
     print(a_hash, "\n", d_hash)
@@ -26,7 +26,6 @@ def test_hamming():
     print("minkowski distance: ", isim.similarity(a_hex, b_hex, "minkowski"))
 
 def test_colorspaces():
-    print("here")
     img = cv.imread('data/test.png')
     improcess = imagewizard.Processing()
     res = improcess.img2grayscale(img, True)
@@ -39,4 +38,5 @@ def test_colorspaces():
 if __name__=="__main__":
     # test_hamming()
     test_colorspaces()
+    # test_hashing()
 
