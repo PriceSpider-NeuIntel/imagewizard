@@ -2,6 +2,7 @@ from imagewizard.helpers import helpers
 from imagewizard.image_processsing.api.colorspaces import colorspaces as ct
 from imagewizard.image_processsing.api.geometric_tfs import geometric_tfs as gt
 from imagewizard.image_processsing.api.smoothing import smoothing as st
+import numpy as np
 """ Class containing the various methods for image processing and transformations. """
 
 
@@ -147,3 +148,41 @@ class Processing():
             Returns: numpy.array of the order specified
         """
         return ct.luminosity(img, intensity_shift, order)
+    
+    def skew_perspective(self, img, input_points: np.float32,
+                     output_points: np.float32,
+                     order: str = 'rgb'):
+        """ skew image by applying perspective transformation
+        Params:
+        img: (numpy.array, PIL.image, cv2.image)
+
+        input_points: four points on input image, ex: np.float32([[56,65],[368,52],[28,387],[389,390]])
+
+        output_points: four points on output location correspoinding to input_points' to be transformed, ex: np.float32([[0,0],[300,0],[0,300],[300,300]])
+
+        order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+        Note: The output will be a numpy.array of the same order
+
+        Returns: numpy.array of the order specified
+        """
+        # TODO: check input_points data type and output_points data type
+        return gt.skew_perspective(img, input_points, output_points, order)
+
+    def skew_affine(self, img, input_points: np.float32,
+                     output_points: np.float32,
+                     order: str = 'rgb'):
+        """ skew image by applying affine transformation
+            Params:
+            img: (numpy.array, PIL.image, cv2.image)
+
+            input_points: three points on input image, ex: np.float32([[50,50],[200,50],[50,200]])
+
+            output_points: three points on output location correspoinding to input_points' to be transformed, np.float32([[10,100],[200,50],[100,250]])
+
+            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+            Note: The output will be a numpy.array of the same order
+
+            Returns: numpy.array of the order specified
+        """
+        # TODO: check input_points data type and output_points data type
+        return gt.skew_affine(img, input_points, output_points, order)

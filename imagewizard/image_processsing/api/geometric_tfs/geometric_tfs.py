@@ -1,6 +1,7 @@
 """ different geometric transformations like resize, rotation, crop """
 import cv2 as cv
 from imagewizard.helpers import helpers
+import numpy as np
 
 
 def resize(img,
@@ -161,4 +162,58 @@ def mirror(img, flip_code: int, order: str):
         return helpers.format_output_image_order(mirrored_image, order)
     else:
         raise ValueError("flip code must be 0, 1 or -1")
-    
+
+
+def skew_affine(img,
+                input_points: np.float32,
+                output_points: np.float32,
+                order: str = 'rgb'):
+    """ skew image by applying affine transformation
+        Params:
+        img: (numpy.array, PIL.image, cv2.image)
+
+        input_points: three points on input image, ex: np.float32([[50,50],[200,50],[50,200]])
+
+        output_points: three points on output location correspoinding to input_points' to be transformed, np.float32([[10,100],[200,50],[100,250]])
+
+        order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+        Note: The output will be a numpy.array of the same order
+
+        Returns: numpy.array of the order specified
+    """
+    # img object passed is converted to a BGR array
+    # and all the operations are performed. The image will be converted
+    # back to specified order and returned as numpy.array
+    img = helpers.image2BGR(img, order)
+    rows, cols, _ch = img.shape
+    img_matrix = cv.getAffineTransform(input_points, output_points)
+    affine_skew_img = cv.warpAffine(img, img_matrix, (cols, rows))
+    return helpers.format_output_image_order(affine_skew_img, order)
+
+
+def skew_perspective(img,
+                     input_points: np.float32,
+                     output_points: np.float32,
+                     order: str = 'rgb'):
+    """ skew image by applying perspective transformation
+        Params:
+        img: (numpy.array, PIL.image, cv2.image)
+
+        input_points: four points on input image, ex: np.float32([[56,65],[368,52],[28,387],[389,390]])
+
+        output_points: four points on output location correspoinding to input_points' to be transformed, ex: np.float32([[0,0],[300,0],[0,300],[300,300]])
+
+        order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+        Note: The output will be a numpy.array of the same order
+
+        Returns: numpy.array of the order specified
+    """
+    # img object passed is converted to a BGR array
+    # and all the operations are performed. The image will be converted
+    # back to specified order and returned as numpy.array
+    img = helpers.image2BGR(img, order)
+    output_rows, output_cols = output_points[3:, :][0][0], output_points[
+        3:, :][0][1]
+    img_matrix = cv.getPerspectiveTransform(input_points, output_points)
+    skew_img = cv.warpPerspective(img, img_matrix, (output_cols, output_rows))
+    return helpers.format_output_image_order(skew_img, order)
