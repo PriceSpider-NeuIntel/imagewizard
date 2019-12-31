@@ -10,13 +10,13 @@ class Similarity():
             metric: str = "hamming",
     ) -> int:
         """
-        The value_src and value_query is expected to be an integer or hexadecimal or array of binary 
+        The value_src and value_query is expected to be an integer or hexadecimal or array of binary
         or array of ints
 
         The metric argument is the distance measurement metric. The values can be "hamming", "euclidean",
         "manhattan", "cosine", "jaccard", "minkowski". The default is hamming.
 
-        The function returns a similarity measure score for the value_src with every value in the 
+        The function returns a similarity measure score for the value_src with every value in the
         value_query.
         
         """

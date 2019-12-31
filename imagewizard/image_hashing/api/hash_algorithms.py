@@ -2,7 +2,7 @@ import numpy
 from PIL import Image
 import scipy.fftpack
 import pywt
-
+""" Perceptual hashing algorithms in python borrowed from https://github.com/JohannesBuchner/imagehash """
 
 def _binary_array_to_hex(arr):
     """
@@ -50,12 +50,18 @@ class ImageHash(object):
             [2**(i % 8) for i, v in enumerate(self.hash.flatten()) if v])
 
 
-def ahash(image, hash_size=8):
+def ahash(image, hash_size=8) -> ImageHash:
     """
 	Average Hash computation
-	Implementation follows http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
-	Step by step explanation: https://www.safaribooksonline.com/blog/2013/11/26/image-hashing-with-python/
-	@image must be a PIL instance.
+    Implementation follows:
+    http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
+    Step by step explanation:
+    https://www.safaribooksonline.com/blog/2013/11/26/image-hashing-with-python/
+    Params:
+        image      - must be a PIL instance image or numpy array in RGB or opencv image in BGR
+        hash_size  - an integer specifying the hash size, default 8 
+    Returns:
+        <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
 	"""
     if hash_size < 2:
         raise ValueError("Hash size must be greater than or equal to 2")
@@ -78,7 +84,11 @@ def dhash(image, hash_size=8):
 	Difference Hash computation.
 	following http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html
 	computes differences horizontally
-	@image must be a PIL instance.
+	Params:
+        image      - must be a PIL instance image or numpy array in RGB or opencv image in BGR
+        hash_size  - an integer specifying the hash size, default 8
+    Returns:
+        <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
 	"""
     # resize(w, h), but numpy.array((h, w))
     if hash_size < 2:
@@ -97,7 +107,11 @@ def dhash_vertical(image, hash_size=8):
 	Difference Hash computation.
 	following http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html
 	computes differences vertically
-	@image must be a PIL instance.
+	Params:
+        image      - must be a PIL instance image or numpy array in RGB or opencv image in BGR
+        hash_size  - an integer specifying the hash size, default 8 for 64 bit hash
+    Returns:
+        <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
 	"""
     # resize(w, h), but numpy.array((h, w))
     image = image.convert("L").resize((hash_size, hash_size + 1),
@@ -112,7 +126,12 @@ def phash(image, hash_size=8, highfreq_factor=4):
     """
 	Perceptual Hash computation.
 	Implementation follows http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
-	@image must be a PIL instance.
+	Params:
+        image      - must be a PIL instance image or numpy array in RGB or opencv image in BGR
+        hash_size  - an integer specifying the hash size (hash_size * highfreq_factor should be less than number of rows or columns of the gray_image)
+        highfreq_factor - an integer specyfing the highfrequency factor
+    Returns:
+        <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
 	"""
     if hash_size < 2:
         raise ValueError("Hash size must be greater than or equal to 2")
@@ -131,7 +150,12 @@ def phash_simple(image, hash_size=8, highfreq_factor=4):
     """
 	Perceptual Hash computation.
 	Implementation follows http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
-	@image must be a PIL instance.
+	Params:
+        image      - must be a PIL instance image or numpy array in RGB or opencv image in BGR
+        hash_size  - an integer specifying the hash size (hash_size * highfreq_factor should be less than number of rows or columns of the gray_image)
+        highfreq_factor - an integer specyfing the highfrequency factor
+    Returns:
+        <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
 	"""
     img_size = hash_size * highfreq_factor
     image = image.convert("L").resize((img_size, img_size), Image.ANTIALIAS)
@@ -150,16 +174,17 @@ def whash(image,
           remove_max_haar_ll=True):
     """
 	Wavelet Hash computation.
-
 	based on https://www.kaggle.com/c/avito-duplicate-ads-detection/
-	@image must be a PIL instance.
-	@hash_size must be a power of 2 and less than @image_scale.
-	@image_scale must be power of 2 and less than image size. By default is equal to max
-		power of 2 for an input image.
-	@mode (see modes in pywt library):
-		'haar' - Haar wavelets, by default
-		'db4' - Daubechies wavelets
-	@remove_max_haar_ll - remove the lowest low level (LL) frequency using Haar wavelet.
+    Params:
+        image      - must be a PIL instance image or numpy array in RGB or opencv image in BGR
+        hash_size  - must be a power of 2 and less than 'image_scale'
+        image_scale- must be power of 2 and less than image size. By default is equal to max power of 2 for an input image.
+        mode (see modes in pywt library):
+            'haar'  - Haar wavelets, by default
+            'db4'   - Daubechies wavelets
+        remove_max_haar_ll - remove the lowest low level (LL) frequency using Haar wavelet.
+    Returns:
+        <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
 	"""
     if image_scale is not None:
         assert image_scale & (image_scale -
@@ -194,6 +219,7 @@ def whash(image,
     med = numpy.median(dwt_low)
     diff = dwt_low > med
     return ImageHash(diff)
+
 
 # LEGACY CODE
 def hex_to_hash(hexstr):
