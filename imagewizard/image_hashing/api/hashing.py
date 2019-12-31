@@ -25,10 +25,12 @@ class Hashing():
     def dhash(self, image, hash_size=8, order: str = 'rgb'):
         """
         Difference Hash computation.
-        following http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html
-        computes differences horizontally
-
-        @image must be a PIL instance image or numpy array RGB.
+        Params:
+            image      - must be a PIL instance image or numpy array in RGB or opencv image in BGR
+            hash_size  - (integer) default 8 for 64 bit hash
+            order      - (string) RGB, BGR: input order of the colors BGR/RGB. Default - order
+        Returns:
+            <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
         """
         image = helpers.format_image_for_hashing(image, order)
         return dhash(image, hash_size)
@@ -36,10 +38,12 @@ class Hashing():
     def dhash_vertical(self, image, hash_size=8, order: str = 'rgb'):
         """
         Difference Hash computation.
-        following http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html
-        computes differences vertically
-
-        @image must be a PIL instance image or numpy array RGB.
+        Params:
+            image      - must be a PIL instance image or numpy array in RGB or opencv image in BGR
+            hash_size  - (integer) default 8 for 64 bit hash
+            order      - (string) RGB, BGR: input order of the colors BGR/RGB. Default - order
+        Returns:
+            <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
         """
         image = helpers.format_image_for_hashing(image, order)
         return dhash_vertical(image, hash_size)
@@ -47,9 +51,12 @@ class Hashing():
     def phash(self, image, hash_size=8, highfreq_factor=4, order: str = 'rgb'):
         """
         Perceptual Hash computation.
-        Implementation follows http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
-
-        @image must be a PIL instance image or numpy array RGB.
+        Params:
+            image      - must be a PIL instance image or numpy array in RGB or opencv image in BGR
+            hash_size  - an integer specifying the hash size (hash_size * highfreq_factor should be less than number of rows or columns of the gray_image)
+            highfreq_factor - an integer specyfing the highfrequency factor
+        Returns:
+            <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
         """
         image = helpers.format_image_for_hashing(image, order)
         return phash(image, hash_size, highfreq_factor)
@@ -61,9 +68,12 @@ class Hashing():
                      order: str = 'rgb'):
         """
         Perceptual Hash computation.
-        Implementation follows http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
-
-        @image must be a PIL instance image or numpy array RGB.
+    	Params:
+            image      - must be a PIL instance image or numpy array in RGB or opencv image in BGR
+            hash_size  - an integer specifying the hash size (hash_size * highfreq_factor should be less than number of rows or columns of the gray_image)
+            highfreq_factor - an integer specyfing the highfrequency factor
+        Returns:
+            <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
         """
         image = helpers.format_image_for_hashing(image, order)
         return phash_simple(image, hash_size, highfreq_factor)
@@ -77,17 +87,16 @@ class Hashing():
               order: str = 'rgb'):
         """
         Wavelet Hash computation.
-
-        based on https://www.kaggle.com/c/avito-duplicate-ads-detection/
-
-        @image must be a PIL instance image or numpy array RGB.
-        @hash_size must be a power of 2 and less than @image_scale.
-        @image_scale must be power of 2 and less than image size. By default is equal to max
-            power of 2 for an input image.
-        @mode (see modes in pywt library):
-            'haar' - Haar wavelets, by default
-            'db4' - Daubechies wavelets
-        @remove_max_haar_ll - remove the lowest low level (LL) frequency using Haar wavelet.
+        Params:
+            image      - must be a PIL instance image or numpy array in RGB or opencv image in BGR
+            hash_size  - must be a power of 2 and less than 'image_scale'
+            image_scale- must be power of 2 and less than image size. By default is equal to max power of 2 for an input image.
+            mode (see modes in pywt library):
+                'haar'  - Haar wavelets, by default
+                'db4'   - Daubechies wavelets
+            remove_max_haar_ll - remove the lowest low level (LL) frequency using Haar wavelet.
+        Returns:
+            <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
         """
         image = helpers.format_image_for_hashing(image, order)
         return whash(image, hash_size, image_scale, mode, remove_max_haar_ll)

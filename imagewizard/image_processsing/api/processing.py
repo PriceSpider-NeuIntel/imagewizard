@@ -22,19 +22,15 @@ class Processing():
                order: str = 'rgb'):
         """ Resize (scale or shrink) image to specified dimensions
             Params:
-            img: (numpy.array, PIL.image, cv2.image)
-
-            interpolation_method: (s, z) s/shrink or z/zoom; default to shrink
-
-            resize_percentage: (0, 100) floating value. to resize image by the specified percentage
-            
-            resize_width, resize_height: (in pixels) if unspecified, defaults to 50% of original img width & height. If either only width or height is specified, the other dimension is scale to keep the aspect ratio intact.
-            Note: these will be ignored if resize_percentage is specified
-
-            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
-            Note: The output will be a numpy.array of the same order
-
-            Returns: numpy.array of the order specified
+                img: (numpy.array, PIL.image, cv2.image)
+                interpolation_method: (s, z) s/shrink or z/zoom; default to shrink
+                resize_percentage: (0, 100) floating value. to resize image by the specified percentage            
+                resize_width, resize_height: (in pixels) if unspecified, defaults to 50% of original img width & height. If either only width or height is specified, the other dimension is scale to keep the aspect ratio intact.
+                    Note: these will be ignored if resize_percentage is specified
+                order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+                    Note: The output will be a numpy.array of the same order
+            Returns:
+                numpy.array of the order specified
         """
         return gt.resize(img, interpolation_method, resize_width,
                          resize_height, resize_percentage, order)
@@ -48,14 +44,12 @@ class Processing():
                       order: str = 'rgb'):
         """ BGR/RGB to Grayscale conversion
             Params:
-            img: (numpy.array, PIL.image, cv2.image)
-
-            thresholding_options: binary, zero, trunc, inverted binary, inverted zero
-            
-            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
-            Note: The output will be a numpy.array of the same order
-
-            Returns: numpy.array of the order specified
+                img: (numpy.array, PIL.image, cv2.image)
+                thresholding_options: binary, zero, trunc, inverted binary, inverted zero
+                order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+                    Note: The output will be a numpy.array of the same order
+            Returns:
+                numpy.array of the order specified
         """
         return ct.img2grayscale(img, to_binary, to_zero, inverted, trunc,
                                 order)
@@ -67,16 +61,13 @@ class Processing():
                order: str = 'rgb'):
         """ Rotate image by specified degrees anti-clockwise
             Params:
-            img: (numpy.array, PIL.image, cv2.image)
-
-            rotation_degree: rotation angle (in degrees)
-
-            scaling_factor: 1.0 to maintain the original scale of the image. 0.5 to halve the size of the image, to double the size of the image, use 2.0.
-        
-            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
-            Note: The output will be a numpy.array of the same order
-
-            Returns: numpy.array of the order specified
+                img: (numpy.array, PIL.image, cv2.image)
+                rotation_degree: rotation angle (in degrees)
+                scaling_factor: 1.0 to maintain the original scale of the image. 0.5 to halve the size of the image, to double the size of the image, use 2.0.
+                order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+                    Note: The output will be a numpy.array of the same order
+            Returns:
+                numpy.array of the order specified
         """
         return gt.rotate(img, rotation_degree, scaling_factor, order)
 
@@ -90,22 +81,16 @@ class Processing():
              order: str = 'rgb'):
         """ Crop the image to specified pixel coordinates
             Params:
-            img: (numpy.array, PIL.image, cv2.image)
-
-            start_x: starting pixel coordinate along the x-axis/width of the image
-
-            end_x: ending pixel coordinate along the x-axis/width of the image
-
-            start_y: starting pixle coordinate along the y-axis/height of the image
-
-            end_y: ending pixle coordinate along the y-axis/height of the image
-
-            is_percentage: if True, the coordinates will be considered as percentages
-
-            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
-            Note: The output will be a numpy.array of the same order
-
-            Returns: numpy.array of the order specified
+                img: (numpy.array, PIL.image, cv2.image)
+                start_x: starting pixel coordinate along the x-axis/width of the image
+                end_x: ending pixel coordinate along the x-axis/width of the image
+                start_y: starting pixle coordinate along the y-axis/height of the image
+                end_y: ending pixle coordinate along the y-axis/height of the image
+                is_percentage: if True, the coordinates will be considered as percentages
+                order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+                    Note: The output will be a numpy.array of the same order
+            Returns:
+                numpy.array of the order specified
         """
         return gt.crop(img, start_x, end_x, start_y, end_y, is_percentage,
                        order)
@@ -113,76 +98,69 @@ class Processing():
     def mirror(self, img, flip_code: int = 0, order: str = 'rgb'):
         """ Mirror the image
             Params:
-            img: (numpy.array, PIL.image, cv2.image)
-
-            flip_code:  = 0 for flipping the image around the x-axis (vertical flipping);
-                        > 0 for flipping around the y-axis (horizontal flipping);
-                        < 0 for flipping around both axes
-
-            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
-            Note: The output will be a numpy.array of the same order
-
-            Returns: numpy.array of the order specified
+                img: (numpy.array, PIL.image, cv2.image)
+                flip_code:  = 0 for flipping the image around the x-axis (vertical flipping);
+                            > 0 for flipping around the y-axis (horizontal flipping);
+                            < 0 for flipping around both axes
+                order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+                    Note: The output will be a numpy.array of the same order
+            Returns:
+                numpy.array of the order specified
         """
         gt.mirror(img, flip_code, order)
 
     def blur(self, img, kernel_size: int = 5, order: str = 'rgb'):
         """ Averaging blur by convolving the image with a normalized box filter of kernel_size
             Params:
-            img: (numpy.array, PIL.image, cv2.image)
-
-            kernel_size(k): (k X k) normalized box filter for blurring
+                img: (numpy.array, PIL.image, cv2.image)
+                kernel_size(k): (k X k) normalized box filter for blurring
         """
         st.blur(img, kernel_size, order)
 
     def luminosity(self, img, intensity_shift: int = 20, order: str = 'rgb'):
         """ Increase/decrease the brightness of the image
             Params:
-            img: (numpy.array, PIL.image, cv2.image)
-
-            brightness_level: 
-
-            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
-            Note: The output will be a numpy.array of the same order
-
-            Returns: numpy.array of the order specified
+                img: (numpy.array, PIL.image, cv2.image)
+                intensity_shift: decrease or increase the brightness level
+                order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+                    Note: The output will be a numpy.array of the same order
+            Returns:
+                numpy.array of the order specified
         """
         return ct.luminosity(img, intensity_shift, order)
-    
-    def skew_perspective(self, img, input_points: np.float32,
-                     output_points: np.float32,
-                     order: str = 'rgb'):
+
+    def skew_perspective(self,
+                         img,
+                         input_points: np.float32,
+                         output_points: np.float32,
+                         order: str = 'rgb'):
         """ skew image by applying perspective transformation
-        Params:
-        img: (numpy.array, PIL.image, cv2.image)
-
-        input_points: four points on input image, ex: np.float32([[56,65],[368,52],[28,387],[389,390]])
-
-        output_points: four points on output location correspoinding to input_points' to be transformed, ex: np.float32([[0,0],[300,0],[0,300],[300,300]])
-
-        order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
-        Note: The output will be a numpy.array of the same order
-
-        Returns: numpy.array of the order specified
+            Params:
+                img: (numpy.array, PIL.image, cv2.image)
+                input_points: four points on input image, ex: np.float32([[56,65],[368,52],[28,387],[389,390]])
+                output_points: four points on output location correspoinding to input_points' to be transformed, ex: np.float32([[0,0],[300,0],[0,300],[300,300]])
+                order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+                    Note: The output will be a numpy.array of the same order
+            Returns:
+                numpy.array of the order specified
         """
         # TODO: check input_points data type and output_points data type
         return gt.skew_perspective(img, input_points, output_points, order)
 
-    def skew_affine(self, img, input_points: np.float32,
-                     output_points: np.float32,
-                     order: str = 'rgb'):
+    def skew_affine(self,
+                    img,
+                    input_points: np.float32,
+                    output_points: np.float32,
+                    order: str = 'rgb'):
         """ skew image by applying affine transformation
             Params:
-            img: (numpy.array, PIL.image, cv2.image)
-
-            input_points: three points on input image, ex: np.float32([[50,50],[200,50],[50,200]])
-
-            output_points: three points on output location correspoinding to input_points' to be transformed, np.float32([[10,100],[200,50],[100,250]])
-
-            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
-            Note: The output will be a numpy.array of the same order
-
-            Returns: numpy.array of the order specified
+                img: (numpy.array, PIL.image, cv2.image)
+                input_points: three points on input image, ex: np.float32([[50,50],[200,50],[50,200]])
+                output_points: three points on output location correspoinding to input_points' to be transformed, np.float32([[10,100],[200,50],[100,250]])
+                order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+                    Note: The output will be a numpy.array of the same order
+            Returns:
+                numpy.array of the order specified
         """
         # TODO: check input_points data type and output_points data type
         return gt.skew_affine(img, input_points, output_points, order)

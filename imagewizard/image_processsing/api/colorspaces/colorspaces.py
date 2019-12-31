@@ -11,14 +11,12 @@ def img2grayscale(img,
                   order: str = 'rgb'):
     """ BGR/RGB to Grayscale conversion
         Params:
-        img: (numpy.array, PIL.image, cv2.image)
-
-        thresholding_options: binary, zero, trunc, inverted binary, inverted zero
-        
-        order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
-        Note: The output will be a numpy.array of the same order
-
-        Returns: numpy.array of the order specified
+            img: (numpy.array, PIL.image, cv2.image)
+            thresholding_options: binary, zero, trunc, inverted binary, inverted zero
+            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+                Note: The output will be a numpy.array of the same order
+        Returns:
+            numpy.array of the order specified
     """
     # img object passed is converted to a BGR array
     # and all the operations are performed. The image will be converted
@@ -47,14 +45,12 @@ def img2grayscale(img,
 def luminosity(img, intensity_shift: int, order: str = 'rgb'):
     """ Increase/decrease the brightness of the image
         Params:
-        img: (numpy.array, PIL.image, cv2.image)
-
-        brightness_level: 
-
-        order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
-        Note: The output will be a numpy.array of the same order
-
-        Returns: numpy.array of the order specified
+            img: (numpy.array, PIL.image, cv2.image)
+            intensity_shift: decrease or increase the brightness level
+            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+                Note: The output will be a numpy.array of the same order
+        Returns:
+            numpy.array of the order specified
     """
     # img object passed is converted to a BGR array
     # and all the operations are performed. The image will be converted
