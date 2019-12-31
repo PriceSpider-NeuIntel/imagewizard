@@ -40,3 +40,6 @@ def test_colorspaces():
 
 if __name__=="__main__":
     test_colorspaces()
+    # TODO: test image processing 
+    # TODO: add coverage
+    # TODO: add travis build
