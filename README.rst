@@ -223,7 +223,7 @@ Resize Image to 500px by 500px
 	:width: 400
 
 
-Resize Image to width 100px, keeping aspect ratio intact
+Resize Image to height 100px, keeping aspect ratio intact
 
 >>> img = cv.imread('data/test.png')
 >>> ip = imagewizard.Processing()    
