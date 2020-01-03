@@ -52,7 +52,7 @@ imagewizard.Hashing()
 >>> import imagewizard as iw
 >>> iw_hash = iw.Hashing()
 
-average hash (a hash)
+Average hash (a hash)
 _____________________
 
 >>> a_hash_pil = iw_hash.ahash(image = pil_image, hash_size = 8, order = 'RGB')
@@ -63,7 +63,7 @@ PIL a-hash: fefff80000000000
 >>> print("cv2 a-hash: {}".format(a_hash_cv2))
 cv2 a-hash: fefff80000000000
 
-distance hash (d hash)
+Distance hash (d hash)
 ______________________
 
 >>> d_hash_pil = iw_hash.dhash(image = pil_image, hash_size = 8, order = 'RGB')
@@ -74,7 +74,7 @@ PIL d-hash: 48b09035b16c9ccb
 >>> print("cv2 d-hash: {}".format(a_hash_cv2))
 cv2 d-hash: 48b09035b16c9ccb
 
-perception hash (p hash)
+Perception hash (p hash)
 ________________________
 
 >>> p_hash_pil = iw_hash.phash(image = pil_image, hash_size = 8, order = 'RGB')
@@ -85,7 +85,7 @@ PIL p-hash: d0ddd594473657c0
 >>> print("cv2 p-hash: {}".format(p_hash_cv2))
 cv2 p-hash: d0ddd594473657c0
 
-wavelet hash (w hash)
+Wavelet hash (w hash)
 _____________________
 
 >>> w_hash_pil = iw_hash.whash(image = pil_image, hash_size = 8, order = 'RGB')
@@ -109,6 +109,7 @@ You can also find the hamming distance (the number of bit positions in which the
 >>> hash_diff = a_hash_pil - a_hash_pil
 >>> print(hash_diff)
 0
+
 Since the two hashes are of the same image, the hamming distance is 0. For more information on hamming distance - https://en.wikipedia.org/wiki/Hamming_distance
 
 If you simply want to check if the two hashes are exact matches, you could do that too,
@@ -147,32 +148,32 @@ ___________
 >>> image2 = cv2.imread('test2.png')
 >>> hash2_str = str(iw_hash.dhash(image2, order = 'BGR'))
 
-hamming distance
+Hamming distance
 ________________
 >>> print("hamming: ", iw_similarity.similarity(hash1_str, hash2_str, metric = 'hamming'))
 hamming: 26
 
-cosine distance
+Cosine distance
 _______________
 >>> print("cosine: ", iw_similarity.similarity(hash1_str, hash2_str, metric = 'cosine'))
 cosine: 0.546
 
-euclidean distance
+Euclidean distance
 __________________
 >>> print("euclidean : {}".format(iw_similarity.similarity(hash1_str, hash2_str, metric = 'euclidean')))
 euclidean : 5.0
 
-manhattan distance
+Manhattan distance
 __________________
 >>> print("manhattan : {}".format(iw_similarity.similarity(hash1_str, hash2_str, metric = 'manhattan')))
 manhattan : 26
 
-jaccard distance
+Jaccard distance
 ________________
 >>> print("jaccard : {}".format(iw_similarity.similarity(hash1_str, hash2_str, metric = 'jaccard')))
 jaccard : 1.0
 
-minkowski distance
+Minkowski distance
 __________________
 p value is set to 3 while computing minkowski distance
 
