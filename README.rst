@@ -3,10 +3,10 @@ imagewizard
 
 imagewizard is a python based library for performing various image manipulations and operations,
 
-1. Image Hashing
-2. Image Similarity (hash distance computation)
-3. Image Processing and Transformations
-4. Image Analysis
+1. `Image Hashing <https://github.com/Swaroop-p/imagewizard#image-hashing>`_
+2. `Image Similarity (hash distance computation) <https://github.com/Swaroop-p/imagewizard#image-similarity-hash-distance>`_
+3. `Image Processing and Transformations <https://github.com/Swaroop-p/imagewizard#image-similarity-hash-distance>`_
+4. `Image Analysis <https://github.com/Swaroop-p/imagewizard#image-analysis>`_
 
 Image Hashing
 =============
@@ -244,6 +244,9 @@ Resize Image to 50% height X width, keeping aspect ratio intact
 .. image:: tests/data/processed_images/shrink-50-percent.png
 	:width: 400
 
+
+Image Analysis
+==============
 
 Source hosted at github: https://github.com/Swaroop-p/imagewizard
 
