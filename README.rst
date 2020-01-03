@@ -193,7 +193,7 @@ Image Processing & Transformations
 imagewizard provides the following image processing and transformations
 
 * `Resize/scale <https://github.com/Swaroop-p/imagewizard#resize>`_
-* `Convert to gray scale <https://github.com/Swaroop-p/imagewizard>`_
+* `Convert to gray scale <https://github.com/Swaroop-p/imagewizard#gray-scale>`_
 * `Rotate <https://github.com/Swaroop-p/imagewizard>`_
 * `Crop <https://github.com/Swaroop-p/imagewizard>`_
 * `Mirror <https://github.com/Swaroop-p/imagewizard>`_
