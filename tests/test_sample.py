@@ -9,12 +9,14 @@ from PIL import Image
 def test_hashing():
     # assert True, "dummy sample test"
     ihash = imagewizard.Hashing()
-    a_hash = ihash.ahash(Image.open('data/test.png'))
+    a_hash = ihash.ahash(image = Image.open('data/test.png'))
     d_hash = ihash.dhash(Image.open('data/test.png'))
     p_hash = ihash.phash(Image.open('data/test.png'))
     # w_hash = ihash.whash(Image.open('data/test.png'))
     w_hash = ihash.whash(cv.imread('data/test.png'))
+    print("a hash: {}".format(a_hash))
     print("a hash: ", str(a_hash), "\nd hash: ", d_hash, "\nphash: ", p_hash, "\nwhash: ", w_hash)
+    print("PIL a-hash: {}".format(a_hash))
 
 def test_similarity():
     a_hex, b_hex = [0, 1, 1, 0, 1], [1, 0, 0, 0, 1, 0, 0]# 0x4bd1, 5 #, '0x4bd1', '5', '0b1001']
@@ -38,8 +40,28 @@ def test_colorspaces():
     cv.waitKey(0)
     cv.destroyAllWindows()
 
+def test_hash_and_similarity():
+
+    iw_similarity = imagewizard.Similarity()
+    iw_hash = imagewizard.Hashing()
+    
+    image1 = cv.imread('data/test.png')
+    hash1_str = str(iw_hash.dhash(image1, order = 'BGR'))
+    
+    image2 = cv.imread('data/test2.png')
+    hash2_str = str(iw_hash.dhash(image2, order = 'BGR'))
+
+    print("cosine : {}".format(iw_similarity.similarity(hash1_str, hash2_str, 'cosine')))
+    print("hamming : {}".format(iw_similarity.similarity(hash1_str, hash2_str, 'hamming')))
+    print("euclidean : {}".format(iw_similarity.similarity(hash1_str, hash2_str, 'euclidean')))
+    print("manhattan : {}".format(iw_similarity.similarity(hash1_str, hash2_str, 'manhattan')))
+    print("jaccard : {}".format(iw_similarity.similarity(hash1_str, hash2_str, 'jaccard')))
+    print("minkowski : {}".format(iw_similarity.similarity(hash1_str, hash2_str, 'minkowski')))
+
 if __name__=="__main__":
-    test_colorspaces()
+    # test_colorspaces()
+    # test_hashing()
+    test_hash_and_similarity()
     # TODO: test image processing 
     # TODO: add coverage
     # TODO: add travis build
