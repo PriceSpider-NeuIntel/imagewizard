@@ -33,8 +33,9 @@ Step 1: read an image file
 __________________________
 ::
 
->>> from PIL import Image
+
 >>> import cv2
+>>> from PIL import Image
 >>> pil_image = Image.open('test.png')
 >>> cv2_image = cv2.imread('test.png')
 
@@ -206,6 +207,12 @@ imagewizard provides the following image processing and transformations
 Resize
 ______
 
+imagewizard provides methods to resize/scale an image to desired pixel (width x height),
+
+imagewizard.Processing().resize(...)
+
+Lets put resize to work on an image of the beautiful view outside Mumbai T2
+
 Original Image
 
 .. image:: tests/data/original_images/street.png 
@@ -247,6 +254,19 @@ Resize Image to 50% height X width, keeping aspect ratio intact
 Gray scale
 __________
 
+imagewizard provides methods to convert a given color image to gray scale in various forms such as,
+
+* To Gray
+* To Binary
+* To Binary Inverted
+* To Zero
+* To Zero Inverted
+* To Truncated
+
+imagewizard.Processing().img2grayscale(...)
+
+Let us use the famous 70s model, Lenna's photo to demonstrate gray scaling.
+
 >>> import cv2
 >>> img = cv2.imread('original_image.png')
 >>> ip = imagewizard.Processing()
@@ -259,6 +279,7 @@ Original
 
 >>> gray_image = ip.img2grayscale(img, order = 'bgr')
 >>> cv2.imshow("Gray", gray_image)
+
 >>> trunc_image = ip.img2grayscale(img, trunc=True, order = 'bgr')
 >>> cv.imshow("Trucated Threshold", trunc_image)
 
@@ -271,6 +292,7 @@ Gray             Truncated
 
 >>> binary_image = ip.img2grayscale(img, to_binary=True, order = 'bgr')
 >>> cv2.imshow("Binary Threshold", binary_image)
+
 >>> binary_inv_image = ip.img2grayscale(img, to_binary=True, inverted=True, order = 'bgr')
 >>> cv2.imshow("Binary Threshold Inverted", binary_inv_image)
 
@@ -283,6 +305,7 @@ Binary           Binary Inv
 
 >>> to_zero_image = ip.img2grayscale(img, to_zero=True, order = 'bgr')
 >>> cv2.imshow("To Zero", to_zero_image)
+
 >>> to_zero_inverted = ip.img2grayscale(img, to_zero=True, inverted = True, order = 'bgr')
 >>> cv2.imshow("To Zero Inverted", to_zero_inverted)
 
