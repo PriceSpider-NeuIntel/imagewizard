@@ -199,8 +199,8 @@ imagewizard provides the following image processing and transformations
 * `Blur <https://github.com/Swaroop-p/imagewizard>`_
 * `Luminosity (Brightness) <https://github.com/Swaroop-p/imagewizard>`_
 * `Skew <https://github.com/Swaroop-p/imagewizard>`_
-	* perspective
-	* affine
+   * perspective
+   * affine
 
 
 Resize
@@ -208,41 +208,89 @@ ______
 
 Original Image
 
-.. image:: tests/data/processed_images/original.png 
-	:width: 400
-
+.. image:: tests/data/original_images/street.png 
+   :width: 60%
 
 Resize Image to 500px by 500px
 
->>> img = cv.imread('data/test.png')
+>>> img = cv2.imread('data/test.png')
 >>> ip = imagewizard.Processing()    
 >>> res = ip.resize(img, resize_width=500, resize_height=500, order = 'bgr')
->>> cv.imshow('Resized Image', res)
+>>> cv2.imshow('Resized Image', res)
 
 .. image:: tests/data/processed_images/shrink-500x500.png
-	:width: 400
+   :width: 60%
 
 
 Resize Image to height 100px, keeping aspect ratio intact
 
->>> img = cv.imread('data/test.png')
+>>> img = cv2.imread('data/test.png')
 >>> ip = imagewizard.Processing()    
 >>> res = ip.resize(img, resize_height=100, order = 'bgr')
->>> cv.imshow('Resized Image', res)
+>>> cv2.imshow('Resized Image', res)
 
 .. image:: tests/data/processed_images/shrink-100px.png
-	:width: 400
+   :width: 60%
 
 
 Resize Image to 50% height X width, keeping aspect ratio intact
 
->>> img = cv.imread('data/test.png')
+>>> img = cv2.imread('data/test.png')
 >>> ip = imagewizard.Processing()    
 >>> res = ip.resize(img, resize_percentage = 50, order = 'bgr')
->>> cv.imshow('Resized Image', res)
+>>> cv2.imshow('Resized Image', res)
 
 .. image:: tests/data/processed_images/shrink-50-percent.png
-	:width: 400
+   :width: 60%
+
+
+Gray scale
+__________
+
+>>> import cv2
+>>> img = cv2.imread('original_image.png')
+>>> ip = imagewizard.Processing()
+
+================  
+Original  		  
+================  
+|lenna_org|        
+================  
+
+>>> gray_image = ip.img2grayscale(img, order = 'bgr')
+>>> cv2.imshow("Gray", gray_image)
+>>> trunc_image = ip.img2grayscale(img, trunc=True, order = 'bgr')
+>>> cv.imshow("Trucated Threshold", trunc_image)
+
+================ ================
+Gray             Truncated       
+================ ================
+|gray|      	  |trunc|		    
+================ ================
+
+
+>>> binary_image = ip.img2grayscale(img, to_binary=True, order = 'bgr')
+>>> cv2.imshow("Binary Threshold", binary_image)
+>>> binary_inv_image = ip.img2grayscale(img, to_binary=True, inverted=True, order = 'bgr')
+>>> cv2.imshow("Binary Threshold Inverted", binary_inv_image)
+
+================ ================  
+Binary           Binary Inv      
+================ ================ 
+|bin_img|		 |bin_inv|	  	 
+================ ================ 
+
+
+>>> to_zero_image = ip.img2grayscale(img, to_zero=True, order = 'bgr')
+>>> cv2.imshow("To Zero", to_zero_image)
+>>> to_zero_inverted = ip.img2grayscale(img, to_zero=True, inverted = True, order = 'bgr')
+>>> cv2.imshow("To Zero Inverted", to_zero_inverted)
+
+================  ================
+To Zero      	  To Zero Inv
+================  ================
+|tz|	 		  |tz_inv|
+================  ================
 
 
 Image Analysis
@@ -256,3 +304,18 @@ Source hosted at github: https://github.com/Swaroop-p/imagewizard
 .. _w Hash: https://fullstackml.com/2016/07/02/wavelet-image-hash-in-python/
 .. _distance algorithms: https://dataconomy.com/2015/04/implementing-the-five-most-popular-similarity-measures-in-python/
 .. _pypi: https://pypi.python.org/pypi/
+
+.. |lenna_org| image:: tests/data/original_images/lenna.png 
+   :width: 50%
+
+.. |gray| image:: tests/data/processed_images/gray.png
+
+.. |bin_img| image:: tests/data/processed_images/binary_img.png
+
+.. |bin_inv| image:: tests/data/processed_images/binary_inv_img.png
+
+.. |tz| image:: tests/data/processed_images/to_zero_img.png
+
+.. |tz_inv| image:: tests/data/processed_images/to_zero_inv.png
+
+.. |trunc| image:: tests/data/processed_images/trunc_img.png
