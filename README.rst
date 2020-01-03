@@ -254,14 +254,13 @@ Resize Image to 50% height X width, keeping aspect ratio intact
 Gray scale
 __________
 
-imagewizard provides methods to convert a given color image to gray scale in various forms such as,
+imagewizard provides methods to convert a given color image to gray scale/inverted in various forms such as,
 
-* To Gray
-* To Binary
-* To Binary Inverted
-* To Zero
-* To Zero Inverted
-* To Truncated
+* Inverted Colors
+* To Gray/Gray Inverted
+* To Binary/Binary Inverted
+* To Zero/Zero Inverted
+* To Truncated/Truncated Inverted
 
 imagewizard.Processing().img2grayscale(...)
 
