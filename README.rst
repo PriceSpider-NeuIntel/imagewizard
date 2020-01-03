@@ -271,22 +271,38 @@ Let us use the famous 70s model, Lenna's photo to demonstrate gray scaling.
 >>> img = cv2.imread('original_image.png')
 >>> ip = imagewizard.Processing()
 
-================  
-Original  		  
-================  
-|lenna_org|        
-================  
+>>> inverted_img = ip.img2grayscale(img, inverted=True, is_gray=False, order = 'bgr')
+>>> cv.imshow("inverted Image", inverted_img)
+
+================ ================
+Original  		 Inverted  		
+================ ================
+|lenna_org|      |clr_inv|     
+================ ================
 
 >>> gray_image = ip.img2grayscale(img, order = 'bgr')
 >>> cv2.imshow("Gray", gray_image)
 
+>>> gray_inv_image = ip.img2grayscale(img, inverted=True, order = 'bgr')
+>>> cv.imshow("Gray Inverted", gray_inv_image)
+
+================ ================ 
+Gray             Gray Inv            
+================ ================ 
+|gray|      	 |gray_inv|      	 
+================ ================ 
+
 >>> trunc_image = ip.img2grayscale(img, trunc=True, order = 'bgr')
 >>> cv.imshow("Trucated Threshold", trunc_image)
 
+>>> trunc_inv_image = ip.img2grayscale(img, trunc=True, inverted=True, order = 'bgr')
+>>> cv.imshow("Trucated Threshold Inv", trunc_inv_image)
+
+
+================ ================ 
+Truncated        Truncated Inv
 ================ ================
-Gray             Truncated       
-================ ================
-|gray|      	  |trunc|		    
+|trunc|		     |trunc_inv|
 ================ ================
 
 
@@ -328,10 +344,13 @@ Source hosted at github: https://github.com/Swaroop-p/imagewizard
 .. _distance algorithms: https://dataconomy.com/2015/04/implementing-the-five-most-popular-similarity-measures-in-python/
 .. _pypi: https://pypi.python.org/pypi/
 
-.. |lenna_org| image:: tests/data/original_images/lenna.png 
-   :width: 50%
+.. |lenna_org| image:: tests/data/original_images/lenna.png
+
+.. |clr_inv| image:: tests/data/processed_images/clr_inverted.png
 
 .. |gray| image:: tests/data/processed_images/gray.png
+
+.. |gray_inv| image:: tests/data/processed_images/gray_inverted.png
 
 .. |bin_img| image:: tests/data/processed_images/binary_img.png
 
@@ -342,3 +361,5 @@ Source hosted at github: https://github.com/Swaroop-p/imagewizard
 .. |tz_inv| image:: tests/data/processed_images/to_zero_inv.png
 
 .. |trunc| image:: tests/data/processed_images/trunc_img.png
+
+.. |trunc_inv| image:: tests/data/processed_images/trunc_inverted.png
