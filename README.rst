@@ -119,6 +119,7 @@ True
 >>> print(a_hash_cv2 == d_hash_cv2)
 False
 
+
 Image Similarity (hash distance)
 ================================
 
@@ -180,9 +181,68 @@ p value is set to 3 while computing minkowski distance
 >>> print("minkowski : {}".format(iw_similarity.similarity(hash1_str, hash2_str, metric = 'minkowski')))
 minkowski : 2.924
 
-Concise explanation of distance algorithms - https://dataconomy.com/2015/04/implementing-the-five-most-popular-similarity-measures-in-python/
+Concise explanation of `distance algorithms`_
 
 The demo script **find_similar_images** illustrates how to find similar images in a directory.
+
+
+Image Processing & Transformations
+==================================
+
+imagewizard provides the following image processing and transformations
+
+* resize/scale
+* img2grayscale
+* rotate
+* crop
+* mirror
+* blur
+* luminosity
+* skew
+	* perspective
+	* affine
+
+
+Resize
+______
+
+Original Image
+
+.. image:: tests/data/processed_images/original.png 
+	:width: 400
+
+
+Resize Image to 500px by 500px
+
+>>> img = cv.imread('data/test.png')
+>>> ip = imagewizard.Processing()    
+>>> res = ip.resize(img, resize_width=500, resize_height=500, order = 'bgr')
+>>> cv.imshow('Resized Image', res)
+
+.. image:: tests/data/processed_images/shrink-500x500.png
+	:width: 400
+
+
+Resize Image to width 100px, keeping aspect ratio intact
+
+>>> img = cv.imread('data/test.png')
+>>> ip = imagewizard.Processing()    
+>>> res = ip.resize(img, resize_height=100, order = 'bgr')
+>>> cv.imshow('Resized Image', res)
+
+.. image:: tests/data/processed_images/shrink-100px.png
+	:width: 400
+
+
+Resize Image to 50% height X width, keeping aspect ratio intact
+
+>>> img = cv.imread('data/test.png')
+>>> ip = imagewizard.Processing()    
+>>> res = ip.resize(img, resize_percentage = 50, order = 'bgr')
+>>> cv.imshow('Resized Image', res)
+
+.. image:: tests/data/processed_images/shrink-50-percent.png
+	:width: 400
 
 
 Source hosted at github: https://github.com/Swaroop-p/imagewizard
@@ -191,4 +251,5 @@ Source hosted at github: https://github.com/Swaroop-p/imagewizard
 .. _p Hash: http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
 .. _d Hash: http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html
 .. _w Hash: https://fullstackml.com/2016/07/02/wavelet-image-hash-in-python/
+.. _distance algorithms: https://dataconomy.com/2015/04/implementing-the-five-most-popular-similarity-measures-in-python/
 .. _pypi: https://pypi.python.org/pypi/

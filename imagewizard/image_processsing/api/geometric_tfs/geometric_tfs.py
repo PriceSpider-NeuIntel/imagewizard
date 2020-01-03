@@ -27,21 +27,22 @@ def resize(img,
     # back to specified order and returned as numpy.array
     img = helpers.image2BGR(img, order)
 
+    interpolation_method = 's'
     # set the size of image along with interploation methods
-    # cv2.INTER_AREA is used for shrinking, whereas cv2.INTER_CUBIC
+    # cv2.INTER_AREA is used for shrinking, whereas cv2.INTER_LINEAR
     # is used for zooming
     if interpolation_method in ['shrink', 's']:
         interpolation = cv.INTER_AREA
     elif interpolation_method in ['zoom', 'z']:
-        interpolation = cv.INTER_CUBIC
+        interpolation = cv.INTER_LINEAR
 
     # get number of pixel horizontally and vertically
     (height, width) = img.shape[:2]
 
     # set width and height pixels of transformed image
     if resize_percentage is not None:
-        ratio = resize_percentage / 100
-        dim = (height * ratio, width * ratio)
+        ratio = resize_percentage / 100     
+        dim = (int(width * ratio), int(height * ratio))
     elif resize_width is None and resize_height is not None:
         ratio = resize_height / img.shape[0]
         dim = (int(img.shape[1] * ratio), resize_height)
