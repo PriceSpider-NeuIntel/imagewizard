@@ -41,6 +41,7 @@ class Processing():
                       to_zero: bool = False,
                       inverted: bool = False,
                       trunc: bool = False,
+                      is_gray: bool = True,
                       order: str = 'rgb'):
         """ BGR/RGB to Grayscale conversion
             Params:
@@ -51,7 +52,7 @@ class Processing():
             Returns:
                 numpy.array of the order specified
         """
-        return ct.img2grayscale(img, to_binary, to_zero, inverted, trunc,
+        return ct.img2grayscale(img, to_binary, to_zero, inverted, trunc, is_gray,
                                 order)
 
     def rotate(self,

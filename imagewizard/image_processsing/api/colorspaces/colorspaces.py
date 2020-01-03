@@ -8,6 +8,7 @@ def img2grayscale(img,
                   to_zero: bool = False,
                   inverted: bool = False,
                   trunc: bool = False,
+                  is_gray: bool = True,
                   order: str = 'rgb'):
     """ BGR/RGB to Grayscale conversion
         Params:
@@ -24,21 +25,30 @@ def img2grayscale(img,
     img = helpers.image2BGR(img, order)
 
     # convert image to grey scale
-    gs_img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    if is_gray:
+        gs_img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    else:
+        gs_img = img
 
-    # if thresholding
-    if trunc:
-        _, gs_img = cv.threshold(gs_img, 127, 255, cv.THRESH_TRUNC)
-    elif inverted:
-        if to_binary:
+    # if thresholding/inverting
+    if inverted:
+        if trunc:
+            _, gs_img = cv.threshold(gs_img, 127, 255, cv.THRESH_TRUNC)
+            gs_img = cv.bitwise_not(gs_img)
+        elif to_binary:
             _, gs_img = cv.threshold(gs_img, 120, 255, cv.THRESH_BINARY_INV)
         elif to_zero:
             _, gs_img = cv.threshold(gs_img, 120, 255, cv.THRESH_TOZERO_INV)
+        else:
+            gs_img = cv.bitwise_not(gs_img)
     else:
-        if to_zero:
+        if trunc:
+            _, gs_img = cv.threshold(gs_img, 127, 255, cv.THRESH_TRUNC)
+        elif to_zero:
             _, gs_img = cv.threshold(gs_img, 120, 255, cv.THRESH_TOZERO)
         elif to_binary:
             _, gs_img = cv.threshold(gs_img, 120, 255, cv.THRESH_BINARY)
+    
     return helpers.format_output_image_order(gs_img, order)
 
 
