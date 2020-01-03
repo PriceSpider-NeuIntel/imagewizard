@@ -191,14 +191,14 @@ Image Processing & Transformations
 
 imagewizard provides the following image processing and transformations
 
-* resize/scale
-* img2grayscale
-* rotate
-* crop
-* mirror
-* blur
-* luminosity
-* skew
+* `Resize/scale <https://github.com/Swaroop-p/imagewizard#resize>`_
+* `Convert to gray scale <https://github.com/Swaroop-p/imagewizard>`_
+* `Rotate <https://github.com/Swaroop-p/imagewizard>`_
+* `Crop <https://github.com/Swaroop-p/imagewizard>`_
+* `Mirror <https://github.com/Swaroop-p/imagewizard>`_
+* `Blur <https://github.com/Swaroop-p/imagewizard>`_
+* `Luminosity (Brightness) <https://github.com/Swaroop-p/imagewizard>`_
+* `Skew <https://github.com/Swaroop-p/imagewizard>`_
 	* perspective
 	* affine
 
