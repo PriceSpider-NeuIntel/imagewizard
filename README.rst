@@ -213,13 +213,11 @@ imagewizard.Processing().resize(...)
 
 Lets put resize to work on an image of the beautiful view outside Mumbai T2
 
-Original Image
-
-+----------+
-| Original |
-+==========+
-| |t2_img| |
-+----------+
+============  ===========  =============  ==================
+  Original    500p X 500p  height 100px   50% height x width
+============  ===========  =============  ==================
+ |t2_img|      |t2_r1|      |t2_r2|        |t2_r3|     
+============  ===========  =============  ==================
 
 .. |t2_img| image:: tests/data/original_images/street.png 
    :width: 450
@@ -232,7 +230,7 @@ Resize Image to 500px by 500px
 >>> res = ip.resize(img, resize_width=500, resize_height=500, order = 'bgr')
 >>> cv2.imshow('Resized Image', res)
 
-.. image:: tests/data/processed_images/shrink-500x500.png
+.. |t2_r1| image:: tests/data/processed_images/shrink-500x500.png
    :width: 100px
    :height: 100px
 
@@ -244,7 +242,7 @@ Resize Image to height 100px, keeping aspect ratio intact
 >>> res = ip.resize(img, resize_height=100, order = 'bgr')
 >>> cv2.imshow('Resized Image', res)
 
-.. image:: tests/data/processed_images/shrink-100px.png
+.. |t2_r2| image:: tests/data/processed_images/shrink-100px.png
    :width: 60%
 
 
@@ -255,7 +253,7 @@ Resize Image to 50% height X width, keeping aspect ratio intact
 >>> res = ip.resize(img, resize_percentage = 50, order = 'bgr')
 >>> cv2.imshow('Resized Image', res)
 
-.. image:: tests/data/processed_images/shrink-50-percent.png
+.. |t2_r3| image:: tests/data/processed_images/shrink-50-percent.png
    :width: 60%
 
 
