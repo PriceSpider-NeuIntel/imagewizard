@@ -214,7 +214,7 @@ imagewizard.Processing().resize(...)
 Lets put resize to work on an image of the beautiful view outside Mumbai T2
 
 ========  ==============  =============  ================
-Original  500px by 500px  height: 100px   50% of original
+Original  500px by 500px  height: 200px   50% of original
 ========  ==============  =============  ================
 |t2_img|      |t2_r1|        |t2_r2|         |t2_r3|     
 ========  ==============  =============  ================
@@ -235,14 +235,14 @@ Resize Image to 500px by 500px
    :height: 100px
 
 
-Resize Image to height 100px, keeping aspect ratio intact
+Resize Image to height 200px, keeping aspect ratio intact
 
 >>> img = cv2.imread('data/test.png')
 >>> ip = imagewizard.Processing()    
->>> res = ip.resize(img, resize_height=100, order = 'bgr')
+>>> res = ip.resize(img, resize_height=200, order = 'bgr')
 >>> cv2.imshow('Resized Image', res)
 
-.. |t2_r2| image:: tests/data/processed_images/shrink-100px.png
+.. |t2_r2| image:: tests/data/processed_images/shrink-200px.png
    :width: 60%
 
 
