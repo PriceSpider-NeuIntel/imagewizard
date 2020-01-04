@@ -215,11 +215,11 @@ Lets put resize to work on an image of the beautiful view outside Mumbai T2
 
 Original Image
 
-+------------------------+
-| Original Image Image I |
-+========================+
-| |t2_img|               |
-+------------------------+
++----------+
+| Original |
++==========+
+| |t2_img| |
++----------+
 
 .. |t2_img| image:: tests/data/original_images/street.png 
    :width: 450
