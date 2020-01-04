@@ -226,7 +226,8 @@ Resize Image to 500px by 500px
 >>> cv2.imshow('Resized Image', res)
 
 .. image:: tests/data/processed_images/shrink-500x500.png
-   :width: 500px
+   :width: 100px
+   :height: 100px
 
 
 Resize Image to height 100px, keeping aspect ratio intact
