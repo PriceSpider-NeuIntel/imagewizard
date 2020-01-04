@@ -226,7 +226,7 @@ Resize Image to 500px by 500px
 >>> cv2.imshow('Resized Image', res)
 
 .. image:: tests/data/processed_images/shrink-500x500.png
-   :width: 60%
+   :width: 500px
 
 
 Resize Image to height 100px, keeping aspect ratio intact
@@ -264,7 +264,7 @@ imagewizard provides methods to convert a given color image to gray scale/invert
 
 imagewizard.Processing().img2grayscale(...)
 
-Let us use the famous 70s model, Lenna's photo to demonstrate gray scaling.
+Let us use the famous picture of Lena, to demonstrate gray scaling.
 
 >>> import cv2
 >>> img = cv2.imread('original_image.png')
