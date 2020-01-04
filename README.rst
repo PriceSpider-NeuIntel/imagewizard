@@ -338,10 +338,65 @@ Binary           Binary Inv
 >>> cv2.imshow("To Zero Inverted", to_zero_inverted)
 
 ================  ================
-To Zero      	  To Zero Inv
+To Zero      	   To Zero Inv
 ================  ================
-|tz|	 		  |tz_inv|
+|tz|	 		      |tz_inv|
 ================  ================
+
+
+Rotate
+______
+
+imagewizard provides method to rotate a given image, with or without scaling. 
+The image provided is rotated in anti-clockwise direction by the rotation angle in degree specified.
+
+* ip.Processing().rotate(image, rotation_degree, order)
+
+Following code demonstrates rotation,
+
+>>> import cv2
+>>> img = cv2.imread('original_image.png')
+>>> ip = imagewizard.Processing()
+
+>>> rotate_by_90 = ip.rotate(img, rotation_degree = 90, order='bgr')
+>>> cv2.imshow("Rotate by 90 degrees", rotate_by_90)
+
+>>> rotate_by_180 = ip.rotate(img, rotation_degree = 180, order='bgr')
+>>> cv2.imshow("Rotate by 180 degrees", rotate_by_180)
+
+>>> rotate_by_270 = ip.rotate(img, rotation_degree = 270, order='bgr')
+>>> cv2.imshow("Rotate by 270 degrees", rotate_by_270)
+
+>>> rotate_by_315_scale = ip.rotate(img, rotation_degree = 315, scaling_factor=0.5, order='bgr')
+>>> cv2.imshow("Rotate by 315 degrees, scale 0.5x", rotate_by_315_scale)
+
+>>> rotate_by_45_scale = ip.rotate(img, rotation_degree = 45, scaling_factor=2, order='bgr')
+>>> cv2.imshow("Rotate by 45 degrees, scale 2x", rotate_by_45_scale)    
+
+================  ================  ================
+Original      	   90 deg            180 deg     
+================  ================  ================
+|lenna_org|       |90deg|           |180deg|        
+================  ================  ================
+
+
+================  =================  ===================
+270 deg       	   45 deg, scale 2x   315 deg, scale 0.5x    
+================  =================  ===================
+|270deg|          |45degs|           |315degs|        
+================  =================  ===================
+
+
+.. |90deg| image:: tests/data/processed_images/rotate/rotate-90deg.png
+
+.. |180deg| image:: tests/data/processed_images/rotate/rotate-180deg.png
+
+.. |270deg| image:: tests/data/processed_images/rotate/rotate-270deg.png
+
+.. |315degs| image:: tests/data/processed_images/rotate/rotate-315deg-scale.png
+
+.. |45degs| image:: tests/data/processed_images/rotate/rotate-45deg-scale.png
+
 
 
 Image Analysis
