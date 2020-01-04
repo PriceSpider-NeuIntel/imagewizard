@@ -104,8 +104,8 @@ def crop(img,
             end_x: ending pixel coordinate along the x-axis/width of the image
             start_y: starting pixle coordinate along the y-axis/height of the image
             end_y: ending pixle coordinate along the y-axis/height of the image
-            is_percentage: if True, the coordinates will be considered as percentages
-            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+            is_percentage: if True, the coordinates will be considered as percentages. Default: False
+            order: (RGB, BGR) input order of the colors BGR/RGB. Default: RGB
                 Note: The output will be a numpy.array of the same order
         Returns:
             numpy.array of the order specified
