@@ -12,7 +12,7 @@ imagewizard is a python based library for performing various image manipulations
       * `Convert to gray scale <https://github.com/Swaroop-p/imagewizard#gray-scale>`_
       * `Rotate <https://github.com/Swaroop-p/imagewizard#rotate>`_
       * `Crop <https://github.com/Swaroop-p/imagewizard#crop>`_
-      * `Mirror <https://github.com/Swaroop-p/imagewizard>`_
+      * `Mirror <https://github.com/Swaroop-p/imagewizard#mirror>`_
       * `Blur <https://github.com/Swaroop-p/imagewizard>`_
       * `Luminosity (Brightness) <https://github.com/Swaroop-p/imagewizard>`_
       * `Skew <https://github.com/Swaroop-p/imagewizard>`_
@@ -209,7 +209,7 @@ imagewizard provides the following image processing and transformations
 * `Convert to gray scale <https://github.com/Swaroop-p/imagewizard#gray-scale>`_
 * `Rotate <https://github.com/Swaroop-p/imagewizard#rotate>`_
 * `Crop <https://github.com/Swaroop-p/imagewizard#crop>`_
-* `Mirror <https://github.com/Swaroop-p/imagewizard>`_
+* `Mirror <https://github.com/Swaroop-p/imagewizard#mirror>`_
 * `Blur <https://github.com/Swaroop-p/imagewizard>`_
 * `Luminosity (Brightness) <https://github.com/Swaroop-p/imagewizard>`_
 * `Skew <https://github.com/Swaroop-p/imagewizard>`_
