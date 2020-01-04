@@ -422,10 +422,10 @@ Parameters:
 >>> ip = imagewizard.Processing()
 
 >>> crop1 = ip.crop(img, start_x = 50, end_x = 100, start_y = 50, end_y = 100, is_percentage = True, order='bgr')
->>> cv2.imshow("Cropped Image (%)", rotate_by_90)
+>>> cv2.imshow("Crop by %", rotate_by_90)
 
 >>> crop2 = ip.crop(img, start_x = 400, end_x = 1000, start_y = 0, end_y = 500, is_percentage = False, order='bgr')
->>> cv2.imshow("Cropped Image (px)", rotate_by_90)
+>>> cv2.imshow("Crop by px", rotate_by_90)
 
 ================  =================  ===================
 Original      	   Crop by %          Crop by px
@@ -454,13 +454,13 @@ Parameters:
 >>> ip = imagewizard.Processing()
 
 >>> mir_x = ip.mirror(img, flip_code=1, order='bgr')
->>> cv.imshow('flipped horizontally', mir_x)
+>>> cv.imshow('Horizontal Mirror (X)', mir_x)
 
 >>> mir_y = ip.mirror(img, flip_code=0, order='bgr')
->>> cv.imshow('flipped vertically', mir_y)
+>>> cv.imshow('Vertical Mirror (Y)', mir_y)
 
 >>> mir_xy = ip.mirror(img, flip_code=-1, order='bgr')
->>> cv.imshow('flipped both horizontally and vertically', mir_xy)
+>>> cv.imshow('Mirrored both X and Y', mir_xy)
 
 ========================  ========================  ========================  ========================
 Original      	            Horizontal Mirror (X)     Vertical Mirror (Y)      Mirrored both X and Y 
