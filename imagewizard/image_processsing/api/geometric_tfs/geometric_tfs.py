@@ -164,8 +164,8 @@ def mirror(img, flip_code: int, order: str):
     """ Mirror the image
         Params:
             img: (numpy.array, PIL.image, cv2.image)
-            flip_code:  = 0 for flipping the image around the x-axis (vertical flipping);
-                        > 0 for flipping around the y-axis (horizontal flipping);
+            flip_code:  = 0 for flipping the image around the y-axis (vertical flipping);
+                        > 0 for flipping around the x-axis (horizontal flipping);
                         < 0 for flipping around both axes
             order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
                 Note: The output will be a numpy.array of the same order

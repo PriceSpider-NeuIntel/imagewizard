@@ -100,15 +100,15 @@ class Processing():
         """ Mirror the image
             Params:
                 img: (numpy.array, PIL.image, cv2.image)
-                flip_code:  = 0 for flipping the image around the x-axis (vertical flipping);
-                            > 0 for flipping around the y-axis (horizontal flipping);
+                flip_code:  = 0 for flipping the image around the y-axis (vertical flipping);
+                            > 0 for flipping around the x-axis (horizontal flipping);
                             < 0 for flipping around both axes
                 order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
                     Note: The output will be a numpy.array of the same order
             Returns:
                 numpy.array of the order specified
         """
-        gt.mirror(img, flip_code, order)
+        return gt.mirror(img, flip_code, order)
 
     def blur(self, img, kernel_size: int = 5, order: str = 'rgb'):
         """ Averaging blur by convolving the image with a normalized box filter of kernel_size
@@ -116,7 +116,7 @@ class Processing():
                 img: (numpy.array, PIL.image, cv2.image)
                 kernel_size(k): (k X k) normalized box filter for blurring
         """
-        st.blur(img, kernel_size, order)
+        return st.blur(img, kernel_size, order)
 
     def luminosity(self, img, intensity_shift: int = 20, order: str = 'rgb'):
         """ Increase/decrease the brightness of the image

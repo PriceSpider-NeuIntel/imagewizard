@@ -433,6 +433,41 @@ Original      	   Crop by %          Crop by px
 |t2_img|          |crop1|            |crop2|        
 ================  =================  ===================
 
+Mirror
+______ 
+
+imagewizard provides methods to mirror/flip a given image. The image can be flipped around its X-axis or Y-axis or both X and Y axis by providing the flip_code parameter.
+The following code demonstrates flipping around various axes.
+
+>>> imagewizard.Processing().mirror(img: Image, flip_code: int, order: str)
+
+Parameters:
+
+* img: (numpy.array, PIL.image, cv2.image)
+* flip_code:  = 0 for flipping the image around the y-axis (vertical flipping);
+               > 0 for flipping around the x-axis (horizontal flipping);
+               < 0 for flipping around both axes
+* order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+
+>>> import cv2
+>>> img = cv2.imread('original_image.png')
+>>> ip = imagewizard.Processing()
+
+>>> mir_x = ip.mirror(img, flip_code=1, order='bgr')
+>>> cv.imshow('flipped horizontally', mir_x)
+
+>>> mir_y = ip.mirror(img, flip_code=0, order='bgr')
+>>> cv.imshow('flipped vertically', mir_y)
+
+>>> mir_xy = ip.mirror(img, flip_code=-1, order='bgr')
+>>> cv.imshow('flipped both horizontally and vertically', mir_xy)
+
+========================  ========================  ========================  ========================
+Original      	            Horizontal Mirror (X)     Vertical Mirror (Y)      Mirrored both X and Y 
+========================  ========================  ========================  ========================
+|lenna_org|                |mir_x|                   |mir_y|                  |mir_xy|               
+========================  ========================  ========================  ========================
+
 
 Image Analysis
 ==============
@@ -481,3 +516,10 @@ Source hosted at github: https://github.com/Swaroop-p/imagewizard
 .. |crop1| image:: tests/data/processed_images/crop/crop1.png
 
 .. |crop2| image:: tests/data/processed_images/crop/crop2.png
+
+
+.. |mir_x| image:: tests/data/processed_images/mirror/flip_x.png
+
+.. |mir_y| image:: tests/data/processed_images/mirror/flip_y.png
+
+.. |mir_xy| image:: tests/data/processed_images/mirror/flip_xy.png
