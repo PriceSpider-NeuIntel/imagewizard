@@ -15,7 +15,7 @@ class Hashing():
         Params:
             image      - must be a PIL instance image or numpy array in RGB or opencv image in BGR
             hash_size  - (integer) default 8 for 64 bit hash
-            order      - (string) RGB, BGR: input order of the colors BGR/RGB. Default - order
+            order      - (string) RGB, BGR: input order of the colors BGR/RGB. Deafult order: RGB
         Returns:
             <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
         """
@@ -28,7 +28,7 @@ class Hashing():
         Params:
             image      - must be a PIL instance image or numpy array in RGB or opencv image in BGR
             hash_size  - (integer) default 8 for 64 bit hash
-            order      - (string) RGB, BGR: input order of the colors BGR/RGB. Default - order
+            order      - (string) RGB, BGR: input order of the colors BGR/RGB. Deafult order: RGB
         Returns:
             <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
         """
@@ -41,7 +41,7 @@ class Hashing():
         Params:
             image      - must be a PIL instance image or numpy array in RGB or opencv image in BGR
             hash_size  - (integer) default 8 for 64 bit hash
-            order      - (string) RGB, BGR: input order of the colors BGR/RGB. Default - order
+            order      - (string) RGB, BGR: input order of the colors BGR/RGB. Deafult order: RGB
         Returns:
             <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
         """

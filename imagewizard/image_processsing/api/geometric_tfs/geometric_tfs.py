@@ -17,7 +17,7 @@ def resize(img,
             resize_percentage: (0, 100) floating value. to resize image by the specified percentage            
             resize_width, resize_height: (in pixels) if unspecified, defaults to 50% of original img width & height. If either only width or height is specified, the other dimension is scale to keep the aspect ratio intact.
                 Note: these will be ignored if resize_percentage is specified
-            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+            order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
                 Note: The output will be a numpy.array of the same order
         Returns:
             numpy.array of the order specified
@@ -67,7 +67,7 @@ def rotate(img,
             img: (numpy.array, PIL.image, cv2.image)
             rotation_degree: rotation angle (in degrees)
             scaling_factor: 1.0 to maintain the original scale of the image. 0.5 to halve the size of the image, to double the size of the image, use 2.0.
-            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+            order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
                 Note: The output will be a numpy.array of the same order
         Returns:
             numpy.array of the order specified
@@ -167,7 +167,7 @@ def mirror(img, flip_code: int, order: str):
             flip_code:  = 0 for flipping the image around the y-axis (vertical flipping);
                         > 0 for flipping around the x-axis (horizontal flipping);
                         < 0 for flipping around both axes
-            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+            order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
                 Note: The output will be a numpy.array of the same order
         Returns:
             numpy.array of the order specified
@@ -193,7 +193,7 @@ def skew_affine(img,
             img: (numpy.array, PIL.image, cv2.image)
             input_points: three points on input image, ex: np.float32([[50,50],[200,50],[50,200]])
             output_points: three points on output location correspoinding to input_points' to be transformed, np.float32([[10,100],[200,50],[100,250]])
-            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+            order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
                 Note: The output will be a numpy.array of the same order
         Returns:
             numpy.array of the order specified
@@ -217,7 +217,7 @@ def skew_perspective(img,
             img: (numpy.array, PIL.image, opencv2.image)
             input_points: four points on input image, ex: np.float32([[56,65],[368,52],[28,387],[389,390]])
             output_points: four points on output location correspoinding to input_points' to be transformed, ex: np.float32([[0,0],[300,0],[0,300],[300,300]])
-            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+            order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
                 Note: The output will be a numpy.array of the same order
         Returns:
             numpy.array of the order specified

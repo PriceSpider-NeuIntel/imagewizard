@@ -14,7 +14,7 @@ def img2grayscale(img,
         Params:
             img: (numpy.array, PIL.image, cv2.image)
             thresholding_options: binary, zero, trunc, inverted binary, inverted zero
-            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+            order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
                 Note: The output will be a numpy.array of the same order
         Returns:
             numpy.array of the order specified
@@ -57,7 +57,7 @@ def luminosity(img, intensity_shift: int, order: str = 'rgb'):
         Params:
             img: (numpy.array, PIL.image, cv2.image)
             intensity_shift: decrease or increase the brightness level
-            order: (RGB, BGR) input order of the colors BGR/RGB. Default - order
+            order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
                 Note: The output will be a numpy.array of the same order
         Returns:
             numpy.array of the order specified
