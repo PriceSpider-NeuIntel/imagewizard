@@ -4,8 +4,21 @@ imagewizard
 imagewizard is a python based library for performing various image manipulations and operations,
 
 1. `Image Hashing <https://github.com/Swaroop-p/imagewizard#image-hashing>`_
+
 2. `Image Similarity (hash distance computation) <https://github.com/Swaroop-p/imagewizard#image-similarity-hash-distance>`_
+
 3. `Image Processing and Transformations <https://github.com/Swaroop-p/imagewizard#image-processing--transformations>`_
+      * `Resize/scale <https://github.com/Swaroop-p/imagewizard#resize>`_
+      * `Convert to gray scale <https://github.com/Swaroop-p/imagewizard#gray-scale>`_
+      * `Rotate <https://github.com/Swaroop-p/imagewizard#rotate>`_
+      * `Crop <https://github.com/Swaroop-p/imagewizard#crop>`_
+      * `Mirror <https://github.com/Swaroop-p/imagewizard>`_
+      * `Blur <https://github.com/Swaroop-p/imagewizard>`_
+      * `Luminosity (Brightness) <https://github.com/Swaroop-p/imagewizard>`_
+      * `Skew <https://github.com/Swaroop-p/imagewizard>`_
+         * perspective
+         * affine
+         
 4. `Image Analysis <https://github.com/Swaroop-p/imagewizard#image-analysis>`_
 
 Image Hashing
