@@ -237,7 +237,7 @@ Resize Image to 50% height X width, keeping aspect ratio intact
 >>> res = ip.resize(img, resize_percentage = 50, order = 'bgr')
 >>> cv2.imshow('Resized Image', res)
 
-.. |t2_r3| image:: tests/data/processed_images/shrink-50-percent.png
+.. |t2_r3| image:: tests/data/processed_images/resize/shrink-50-percent.png
    :width: 60%
 
 
@@ -248,7 +248,7 @@ Resize Image to 300px by 300px
 >>> res = ip.resize(img, resize_width=300, resize_height=300, order = 'bgr')
 >>> cv2.imshow('Resized Image', res)
 
-.. |t2_r1| image:: tests/data/processed_images/shrink-300px-300px.png
+.. |t2_r1| image:: tests/data/processed_images/resize/shrink-300px-300px.png
    :width: 100px
    :height: 100px
 
@@ -260,7 +260,7 @@ Resize Image to height 200px, keeping aspect ratio intact
 >>> res = ip.resize(img, resize_height=200, order = 'bgr')
 >>> cv2.imshow('Resized Image', res)
 
-.. |t2_r2| image:: tests/data/processed_images/shrink-200px.png
+.. |t2_r2| image:: tests/data/processed_images/resize/shrink-200px.png
    :width: 60%
 
 
@@ -358,20 +358,20 @@ Source hosted at github: https://github.com/Swaroop-p/imagewizard
 
 .. |lenna_org| image:: tests/data/original_images/lenna.png
 
-.. |clr_inv| image:: tests/data/processed_images/clr_inverted.png
+.. |clr_inv| image:: tests/data/processed_images/gray/clr_inverted.png
 
-.. |gray| image:: tests/data/processed_images/gray.png
+.. |gray| image:: tests/data/processed_images/gray/gray.png
 
-.. |gray_inv| image:: tests/data/processed_images/gray_inverted.png
+.. |gray_inv| image:: tests/data/processed_images/gray/gray_inverted.png
 
-.. |bin_img| image:: tests/data/processed_images/binary_img.png
+.. |bin_img| image:: tests/data/processed_images/gray/binary_img.png
 
-.. |bin_inv| image:: tests/data/processed_images/binary_inv_img.png
+.. |bin_inv| image:: tests/data/processed_images/gray/binary_inv_img.png
 
-.. |tz| image:: tests/data/processed_images/to_zero_img.png
+.. |tz| image:: tests/data/processed_images/gray/to_zero_img.png
 
-.. |tz_inv| image:: tests/data/processed_images/to_zero_inv.png
+.. |tz_inv| image:: tests/data/processed_images/gray/to_zero_inv.png
 
-.. |trunc| image:: tests/data/processed_images/trunc_img.png
+.. |trunc| image:: tests/data/processed_images/gray/trunc_img.png
 
-.. |trunc_inv| image:: tests/data/processed_images/trunc_inverted.png
+.. |trunc_inv| image:: tests/data/processed_images/gray/trunc_inverted.png
