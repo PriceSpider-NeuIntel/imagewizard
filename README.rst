@@ -194,8 +194,8 @@ imagewizard provides the following image processing and transformations
 
 * `Resize/scale <https://github.com/Swaroop-p/imagewizard#resize>`_
 * `Convert to gray scale <https://github.com/Swaroop-p/imagewizard#gray-scale>`_
-* `Rotate <https://github.com/Swaroop-p/imagewizard>`_
-* `Crop <https://github.com/Swaroop-p/imagewizard>`_
+* `Rotate <https://github.com/Swaroop-p/imagewizard#rotate>`_
+* `Crop <https://github.com/Swaroop-p/imagewizard#crop>`_
 * `Mirror <https://github.com/Swaroop-p/imagewizard>`_
 * `Blur <https://github.com/Swaroop-p/imagewizard>`_
 * `Luminosity (Brightness) <https://github.com/Swaroop-p/imagewizard>`_
@@ -387,16 +387,38 @@ Original      	   90 deg            180 deg
 ================  =================  ===================
 
 
-.. |90deg| image:: tests/data/processed_images/rotate/rotate-90deg.png
+Crop
+____ 
 
-.. |180deg| image:: tests/data/processed_images/rotate/rotate-180deg.png
+imagewizard lets you crop a given image. Provide the starting and ending, X and Y coordinates to crop the image to.
 
-.. |270deg| image:: tests/data/processed_images/rotate/rotate-270deg.png
+>>> imagewizard.Processing().crop(img: Image, start_x: float, end_x: float, start_y: float, end_y: float, is_percentage: Bool, order: str)
 
-.. |315degs| image:: tests/data/processed_images/rotate/rotate-315deg-scale.png
+Parameters:
 
-.. |45degs| image:: tests/data/processed_images/rotate/rotate-45deg-scale.png
+* img: (numpy.array, PIL.image, cv2.image)
+* start_x: starting pixel coordinate along the x-axis/width of the image
+* end_x: ending pixel coordinate along the x-axis/width of the image
+* start_y: starting pixle coordinate along the y-axis/height of the image
+* end_y: ending pixle coordinate along the y-axis/height of the image
+* is_percentage: if True, the coordinates will be considered as percentages
+* order: (RGB, BGR) input order of the colors BGR/RGB. Default - order  
 
+>>> import cv2
+>>> img = cv2.imread('original_image.png')
+>>> ip = imagewizard.Processing()
+
+>>> crop1 = ip.crop(img, start_x = 50, end_x = 100, start_y = 50, end_y = 100, is_percentage = True, order='bgr')
+>>> cv2.imshow("Cropped Image (%)", rotate_by_90)
+
+>>> crop2 = ip.crop(img, start_x = 400, end_x = 1000, start_y = 0, end_y = 500, is_percentage = False, order='bgr')
+>>> cv2.imshow("Cropped Image (px)", rotate_by_90)
+
+================  =================  ===================
+Original      	   Crop by %          Crop by px
+================  =================  ===================
+|t2_img|          |crop1|            |crop2|        
+================  =================  ===================
 
 
 Image Analysis
@@ -430,3 +452,19 @@ Source hosted at github: https://github.com/Swaroop-p/imagewizard
 .. |trunc| image:: tests/data/processed_images/gray/trunc_img.png
 
 .. |trunc_inv| image:: tests/data/processed_images/gray/trunc_inverted.png
+
+
+.. |90deg| image:: tests/data/processed_images/rotate/rotate-90deg.png
+
+.. |180deg| image:: tests/data/processed_images/rotate/rotate-180deg.png
+
+.. |270deg| image:: tests/data/processed_images/rotate/rotate-270deg.png
+
+.. |315degs| image:: tests/data/processed_images/rotate/rotate-315deg-scale.png
+
+.. |45degs| image:: tests/data/processed_images/rotate/rotate-45deg-scale.png
+
+
+.. |crop1| image:: tests/data/processed_images/crop/crop1.png
+
+.. |crop2| image:: tests/data/processed_images/crop/crop2.png

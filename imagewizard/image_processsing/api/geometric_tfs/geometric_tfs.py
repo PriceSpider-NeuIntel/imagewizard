@@ -114,15 +114,49 @@ def crop(img,
     # and all the operations are performed. The image will be converted
     # back to specified order and returned as numpy.array
     img = helpers.image2BGR(img, order)
+    err_msg = ''
 
     # get the dimensions of the image
     (height, width) = img.shape[:2]
 
     # compute coordinates if params values are percentages
     if is_percentage:
+        if start_x < 0 or start_x > 100:
+            err_msg += 'start x: {} out of range 0 - 100. \n'.format(start_x)
+        if end_x < 0 or end_x > 100:
+            err_msg += 'end x: {} out of range 0 - 100. \n'.format(end_x)
+        
+        if start_y < 0 or start_y > 100:
+            err_msg += 'start y: {} out of range 0 - 100. \n'.format(start_y)
+        if end_y < 0 or end_y > 100:
+            err_msg += 'end x: {} out of range 0 - 100. \n'.format(end_y)
+
+        if start_x > end_x:
+            err_msg += 'start x: {} must be less than end x: {}. \n'.format(start_x, end_x)
+        if start_y > end_y:
+            err_msg += 'start y: {} must be less than end y: {}. \n'.format(start_y, end_y)
+
         start_x, end_x, start_y, end_y = width * (start_x / 100), width * (
             end_x / 100), height * (start_y / 100), height * (end_y / 100)
-    cropped_image = img[start_y:end_y, start_x, end_x]
+    else:
+        if start_x > end_x:
+            err_msg += 'start x: {} must be less than end x: {}. \n'.format(start_x, end_x)
+        if start_y > end_y:
+            err_msg += 'start y: {} must be less than end y: {}. \n'.format(start_y, end_y)
+        
+        if start_x < 0 or start_x > width:
+            err_msg += 'start x: {} is out of range 0 - {}. \n'.format(start_x, width)
+        if end_x < 0 or end_x > width:
+            err_msg += 'end x: {} is out of range 0 - {}. \n'.format(end_x, width)
+        
+        if start_y < 0 or start_y > height:
+            err_msg += 'start y: {} is out of range 0 - {}. \n'.format(start_y, height)
+        if end_y < 0 or end_y > width:
+            err_msg += 'end y: {} is out of range 0 - {}. \n'.format(end_y, height)
+
+    if not err_msg == '':
+        raise ValueError(err_msg)
+    cropped_image = img[int(start_y):int(end_y), int(start_x):int(end_x)]
     return helpers.format_output_image_order(cropped_image, order)
 
 
