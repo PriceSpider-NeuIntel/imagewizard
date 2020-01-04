@@ -213,11 +213,11 @@ imagewizard.Processing().resize(...)
 
 Lets put resize to work on an image of the beautiful view outside Mumbai T2
 
-============  ===========  =============  ==================
-  Original    500p X 500p  height 100px   50% height x width
-============  ===========  =============  ==================
- |t2_img|      |t2_r1|      |t2_r2|        |t2_r3|     
-============  ===========  =============  ==================
+========  ==============  =============  ================
+Original  500px by 500px  height: 100px   50% of original
+========  ==============  =============  ================
+|t2_img|      |t2_r1|        |t2_r2|         |t2_r3|     
+========  ==============  =============  ================
 
 .. |t2_img| image:: tests/data/original_images/street.png 
    :width: 450
