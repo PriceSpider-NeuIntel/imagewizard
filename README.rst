@@ -215,8 +215,15 @@ Lets put resize to work on an image of the beautiful view outside Mumbai T2
 
 Original Image
 
-.. image:: tests/data/original_images/street.png 
-   :width: 60%
++------------------------+
+| Original Image Image I |
++========================+
+| |t2_img|               |
++------------------------+
+
+.. |t2_img| image:: tests/data/original_images/street.png 
+   :width: 450
+   
 
 Resize Image to 500px by 500px
 
