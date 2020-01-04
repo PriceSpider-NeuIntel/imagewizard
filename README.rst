@@ -444,9 +444,10 @@ The following code demonstrates flipping around various axes.
 Parameters:
 
 * img: (numpy.array, PIL.image, cv2.image)
-* flip_code:  = 0 for flipping the image around the y-axis (vertical flipping);
-               > 0 for flipping around the x-axis (horizontal flipping);
-               < 0 for flipping around both axes
+* flip_code:  
+   * = 0 for flipping the image around the y-axis (vertical flipping);
+   * > 0 for flipping around the x-axis (horizontal flipping);
+   * < 0 for flipping around both axes
 * order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
 
 >>> import cv2
