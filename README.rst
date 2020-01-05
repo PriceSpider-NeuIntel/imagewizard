@@ -505,6 +505,43 @@ Original       Blur level 5   Blur level 25  Blur level 50
 =============  =============  =============  =============
 
 
+Luminosity
+__________
+
+imagewizard provides methods to change the luminosity/brightness of a given image. The intensity of the level can be passed as an argument to the function. A positive intensity value will brighten the image, whereas a negative value will darken the image.
+The following code demonstrates changing the brightness levels.
+
+>>> imagewizard.Processing().luminosity(img: Image, intensity_shift: int, order: str)
+
+Parameters:
+
+* img: (numpy.array, PIL.image, cv2.image)
+* intensity_shift: decrease or increase the brightness level
+* order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
+
+>>> import cv2
+>>> img = cv2.imread('original_image.png')
+>>> ip = imagewizard.Processing()
+
+lum_100 = ip.luminosity(img, 100, 'bgr')
+    lum_150 = ip.luminosity(img, 150, 'bgr')
+    lum_255 = ip.luminosity(img, 255, 'bgr')
+
+    lum_neg_100 = ip.luminosity(img, -100, 'bgr')
+
+>>> lum_100 = ip.luminosity(img, intensity_shift = 100, order = 'bgr')
+>>> cv.imshow('Brightness level increased by 100', lum_100)
+
+>>> lum_neg_100 = ip.luminosity(img, intensity_shift = -100, order = 'bgr')
+>>> cv.imshow('Brightness level decreased by 100', lum_neg_100)
+
+
+=================================  =================================  =================================
+Brightness level decreased by 100  Original                           Brightness level increased by 100
+=================================  =================================  =================================
+|lum_neg_100|                      |lenna_org|                        |lum_100|                        
+=================================  =================================  =================================
+
 
 
 Image Analysis
@@ -568,3 +605,8 @@ Source hosted at github: https://github.com/Swaroop-p/imagewizard
 .. |blur_25| image:: tests/data/processed_images/blur/blur25.png
 
 .. |blur_50| image:: tests/data/processed_images/blur/blur50.png
+
+
+.. |lum_100| image:: tests/data/processed_images/luminosity/lum_100.png
+
+.. |lum_neg_100| image:: tests/data/processed_images/luminosity/lum_neg_100.png
