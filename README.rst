@@ -470,6 +470,43 @@ Original      	            Horizontal Mirror (X)     Vertical Mirror (Y)      Mi
 ========================  ========================  ========================  ========================
 
 
+Blur
+____
+
+imagewizard provides methods to blur a given image. The intensity of the blur can be passed as an argument to the function.
+The following code demonstrates blurring.
+
+>>> imagewizard.Processing().blur(img: Image, blur_level: int, order: str)
+
+Parameters:
+
+* img: (numpy.array, PIL.image, cv2.image)
+* blur_level: (int, > 0 and < 100,000) intensity of blur 
+* order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
+
+>>> import cv2
+>>> img = cv2.imread('original_image.png')
+>>> ip = imagewizard.Processing()
+
+>>> blur_5 = ip.blur(img, blur_level = 5, order='bgr')
+>>> cv.imshow('Blur level 5', blur_5)
+
+>>> blur_25 = ip.blur(img, blur_level = 25, order='bgr')
+>>> cv.imshow('Blur level 25', blur_25)
+
+>>> blur_50 = ip.blur(img, blur_level = 50, order='bgr')
+>>> cv.imshow('Blur level 50', blur_50)
+
+
+=============  =============  =============  =============
+Original       Blur level 5   Blur level 25  Blur level 50
+=============  =============  =============  =============
+|t2_img|       |blur_5|       |blur_25|      |blur_50|    
+=============  =============  =============  =============
+
+
+
+
 Image Analysis
 ==============
 
@@ -524,3 +561,10 @@ Source hosted at github: https://github.com/Swaroop-p/imagewizard
 .. |mir_y| image:: tests/data/processed_images/mirror/flip_y.png
 
 .. |mir_xy| image:: tests/data/processed_images/mirror/flip_xy.png
+
+
+.. |blur_5| image:: tests/data/processed_images/blur/blur5.png
+
+.. |blur_25| image:: tests/data/processed_images/blur/blur25.png
+
+.. |blur_50| image:: tests/data/processed_images/blur/blur50.png
