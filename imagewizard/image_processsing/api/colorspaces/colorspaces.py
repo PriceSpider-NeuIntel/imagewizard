@@ -1,6 +1,7 @@
 """ change images between different color spaces """
 import cv2 as cv
 from imagewizard.helpers import helpers
+import numpy as np
 
 
 def img2grayscale(img,
@@ -71,12 +72,23 @@ def luminosity(img, intensity_shift: int, order: str = 'rgb'):
     hsv = cv.cvtColor(img, cv.COLOR_BGR2HSV)
     hue, sat, brightness_value = cv.split(hsv)
 
-    # prevent overflow of value
-    limit = 255 - intensity_shift
-    brightness_value[brightness_value > limit] = 255
+    # brighten the pixels (intensity_shift > 0)
+    if intensity_shift > 0:
+        # prevent overflow of value
+        limit = 255 - intensity_shift
+        brightness_value[brightness_value > limit] = 255
 
-    # increase the brightness value
-    brightness_value[brightness_value <= limit] += intensity_shift
+        # increase the brightness value
+        brightness_value[brightness_value <= limit] += intensity_shift
+    
+    # darken the pixels (intensity_shift < 0)
+    else:
+        # prevent overflow of value
+        limit = -(intensity_shift)
+        brightness_value[brightness_value < limit] = 0
+        
+        # decrease the brightness value
+        brightness_value[brightness_value >= limit] -= limit
 
     # re-construct hsv
     final_hsv = cv.merge((hue, sat, brightness_value))
