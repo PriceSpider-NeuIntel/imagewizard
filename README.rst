@@ -14,7 +14,7 @@ imagewizard is a python based library for performing various image manipulations
       * `Crop <https://github.com/Swaroop-p/imagewizard#crop>`_
       * `Mirror <https://github.com/Swaroop-p/imagewizard#mirror>`_
       * `Blur <https://github.com/Swaroop-p/imagewizard#blur>`_
-      * `Luminosity (Brightness) <https://github.com/Swaroop-p/imagewizard>`_
+      * `Luminosity (Brightness) <https://github.com/Swaroop-p/imagewizard#luminosity>`_
       * `Skew <https://github.com/Swaroop-p/imagewizard>`_
          * perspective
          * affine
@@ -211,7 +211,7 @@ imagewizard provides the following image processing and transformations
 * `Crop <https://github.com/Swaroop-p/imagewizard#crop>`_
 * `Mirror <https://github.com/Swaroop-p/imagewizard#mirror>`_
 * `Blur <https://github.com/Swaroop-p/imagewizard#blur>`_
-* `Luminosity (Brightness) <https://github.com/Swaroop-p/imagewizard>`_
+* `Luminosity (Brightness) <https://github.com/Swaroop-p/imagewizard#luminosity>`_
 * `Skew <https://github.com/Swaroop-p/imagewizard>`_
    * perspective
    * affine
@@ -508,7 +508,7 @@ Original       Blur level 5   Blur level 25  Blur level 50
 Luminosity
 __________
 
-imagewizard provides methods to change the luminosity/brightness of a given image. The intensity of the level can be passed as an argument to the function. A positive intensity value will brighten the image, whereas a negative value will darken the image.
+imagewizard provides methods to change the luminosity/brightness of a given image. The intensity of the brightness can be passed as an argument to the function. A positive intensity value will brighten the image, whereas a negative value will darken the image.
 The following code demonstrates changing the brightness levels.
 
 >>> imagewizard.Processing().luminosity(img: Image, intensity_shift: int, order: str)
@@ -516,18 +516,12 @@ The following code demonstrates changing the brightness levels.
 Parameters:
 
 * img: (numpy.array, PIL.image, cv2.image)
-* intensity_shift: decrease or increase the brightness level
+* intensity_shift: -ve value to darken and +ve value to brighten
 * order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
 
 >>> import cv2
 >>> img = cv2.imread('original_image.png')
 >>> ip = imagewizard.Processing()
-
-lum_100 = ip.luminosity(img, 100, 'bgr')
-    lum_150 = ip.luminosity(img, 150, 'bgr')
-    lum_255 = ip.luminosity(img, 255, 'bgr')
-
-    lum_neg_100 = ip.luminosity(img, -100, 'bgr')
 
 >>> lum_100 = ip.luminosity(img, intensity_shift = 100, order = 'bgr')
 >>> cv.imshow('Brightness level increased by 100', lum_100)
