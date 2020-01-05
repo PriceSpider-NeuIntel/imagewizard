@@ -110,13 +110,19 @@ class Processing():
         """
         return gt.mirror(img, flip_code, order)
 
-    def blur(self, img, kernel_size: int = 5, order: str = 'rgb'):
+    def blur(self, img, blur_level: int = 5, order: str = 'rgb'):
         """ Averaging blur by convolving the image with a normalized box filter of kernel_size
             Params:
                 img: (numpy.array, PIL.image, cv2.image)
-                kernel_size(k): (k X k) normalized box filter for blurring
+                blur_level: (int, > 0) intensity of blur
+                order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
+                    Note: The output will be a numpy.array of the same order
+            Returns:
+                numpy.array of the order specified
         """
-        return st.blur(img, kernel_size, order)
+        if blur_level <= 0 or blur_level > 100000:
+            raise ValueError('Blur level: {} must be an integer & in the range [1, 100000]'.format(blur_level))
+        return st.blur(img, blur_level, order)
 
     def luminosity(self, img, intensity_shift: int = 20, order: str = 'rgb'):
         """ Increase/decrease the brightness of the image
