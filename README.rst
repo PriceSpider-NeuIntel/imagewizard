@@ -80,7 +80,7 @@ Parameters:
 
 * image      - must be a PIL instance image or numpy array in RGB or opencv image in BGR  
 * hash_size  - (integer) default 8 for 64 bit hash  
-* order      - (string) RGB, BGR: input order of the colors BGR/RGB. Deafult order: RGB
+* order      - (string) RGB, BGR: defaults to 'RGB' - input order of the colors BGR/RGB. If using PIL to read an image, 'order' need not be specified. **If opencv is used to read an image, 'order' must be set to 'BGR'**
 
 >>> import imagewizard as iw
 >>> iw_hash = iw.Hashing()
@@ -248,7 +248,7 @@ Parameters:
 * resize_percentage: (0, 100) floating value. to resize image by the specified percentage              
 * resize_width, resize_height: (in pixels) if unspecified, defaults to 50% of original img width & height. If either only width or height is specified, the other dimension is scaled implicitly, to keep the aspect ratio intact.  
       Note: these will be ignored if resize_percentage is specified  
-* order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB  
+* order: (RGB, BGR) input order of the colors BGR/RGB. If using PIL to read an image, 'order' need not be specified. **If opencv is used to read an image, 'order' must be set to 'BGR'**  
       Note: The output will be a numpy.array of the same order  
 
 Lets put resize to work on an image of the beautiful view outside Mumbai T2
@@ -329,7 +329,7 @@ Parameters:
 
       Note: the preference of the parameters follows - truc > to_binary > to_zero. The lower order parameter will be ignored in presence of a parameter with a greater preference. 
 
-* order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB  
+* order: (RGB, BGR) input order of the colors BGR/RGB. If using PIL to read an image, 'order' need not be specified. **If opencv is used to read an image, 'order' must be set to 'BGR'**  
       Note: The output will be a numpy.array of the same order  
 
 Let us use the famous picture of Lena, to demonstrate gray scaling.
@@ -412,7 +412,7 @@ Parameters:
 * image: (numpy.array, PIL.image, cv2.image)
 * rotation_degree: rotation angle (in degrees), the image will be rotate in anti-clockwise direction
 * scaling_factor: scale the image to desired factor. set to 1.0 to maintain the original scale of the image. 0.5 to halve the size of the image, to double the size of the image, use 2.0.
-* order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
+* order: (RGB, BGR) input order of the colors BGR/RGB. If using PIL to read an image, 'order' need not be specified. **If opencv is used to read an image, 'order' must be set to 'BGR'**
 
 Following code demonstrates rotation,
 
@@ -500,7 +500,7 @@ Parameters:
    * = 0 for flipping the image around the y-axis (vertical flipping);
    * > 0 for flipping around the x-axis (horizontal flipping);
    * < 0 for flipping around both axes
-* order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
+* order: (RGB, BGR) input order of the colors BGR/RGB. If using PIL to read an image, 'order' need not be specified. **If opencv is used to read an image, 'order' must be set to 'BGR'**
 
 >>> import cv2
 >>> img = cv2.imread('original_image.png')
@@ -534,7 +534,7 @@ Parameters:
 
 * img: (numpy.array, PIL.image, cv2.image)
 * blur_level: (int, > 0 and < 100,000) intensity of blur 
-* order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
+* order: (RGB, BGR) input order of the colors BGR/RGB. If using PIL to read an image, 'order' need not be specified. **If opencv is used to read an image, 'order' must be set to 'BGR'**
 
 >>> import cv2
 >>> img = cv2.imread('original_image.png')
@@ -569,7 +569,7 @@ Parameters:
 
 * img: (numpy.array, PIL.image, cv2.image)
 * intensity_shift: -ve value to darken and +ve value to brighten
-* order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
+* order: (RGB, BGR) input order of the colors BGR/RGB. If using PIL to read an image, 'order' need not be specified. **If opencv is used to read an image, 'order' must be set to 'BGR'**
 
 >>> import cv2
 >>> img = cv2.imread('original_image.png')
@@ -602,7 +602,7 @@ Parameters:
 * img: (numpy.array, PIL.image, cv2.image)
 * input_points: four points on input image, ex: np.float32([[x1,y1],[x2,y2],[x3,y3],[x4,y4]]), (xi, yi are floating point)
 * output_points: four points on output location correspoinding to input_points' to be transformed, ex: np.float32([[p1,q1],[p2,q2],[p3,q3],[p4,q4]]), (pi, qi are floating point)
-* order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
+* order: (RGB, BGR) input order of the colors BGR/RGB. If using PIL to read an image, 'order' need not be specified. **If opencv is used to read an image, 'order' must be set to 'BGR'**
 
 >>> import cv2
 >>> img = cv2.imread('original_image.png')
@@ -641,7 +641,7 @@ Parameters:
 * img: (numpy.array, PIL.image, cv2.image)
 * input_points: three points on input image, ex: np.float32([[x1,y1],[x2,y2],[x3,y3]]), (xi, yi are floating point)
 * output_points: three points on output location correspoinding to input_points' to be transformed, np.float32([[p1,q1],[p2,q2],[p3,q3]]), (pi, qi are floating point)
-* order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
+* order: (RGB, BGR) input order of the colors BGR/RGB. If using PIL to read an image, 'order' need not be specified. **If opencv is used to read an image, 'order' must be set to 'BGR'**
 
 >>> import cv2
 >>> img = cv2.imread('original_image.png')
