@@ -650,7 +650,7 @@ Source hosted at github: https://github.com/Swaroop-p/imagewizard
 .. |lum_neg_100| image:: tests/data/processed_images/luminosity/lum_neg_100.png
 
 
-.. |skew_per_org| image:: tests/data/original_images/skew.png
+.. |skew_per_org| image:: tests/data/original_images/skew_per_org.png
 
 .. |skew_per_tf| image:: tests/data/processed_images/skew/skew_per.png
 
