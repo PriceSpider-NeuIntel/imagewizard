@@ -28,27 +28,28 @@ def img2grayscale(img,
     # convert image to grey scale
     if is_gray:
         gs_img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+        # if thresholding/inverting
+        if inverted:
+            if trunc:
+                _, gs_img = cv.threshold(gs_img, 127, 255, cv.THRESH_TRUNC)
+                gs_img = cv.bitwise_not(gs_img)
+            elif to_binary:
+                _, gs_img = cv.threshold(gs_img, 120, 255, cv.THRESH_BINARY_INV)
+            elif to_zero:
+                _, gs_img = cv.threshold(gs_img, 120, 255, cv.THRESH_TOZERO_INV)
+            else:
+                gs_img = cv.bitwise_not(gs_img)
+        else:
+            if trunc:
+                _, gs_img = cv.threshold(gs_img, 127, 255, cv.THRESH_TRUNC)
+            elif to_binary:
+                _, gs_img = cv.threshold(gs_img, 120, 255, cv.THRESH_BINARY)
+            elif to_zero:
+                _, gs_img = cv.threshold(gs_img, 120, 255, cv.THRESH_TOZERO)
     else:
         gs_img = img
-
-    # if thresholding/inverting
-    if inverted:
-        if trunc:
-            _, gs_img = cv.threshold(gs_img, 127, 255, cv.THRESH_TRUNC)
-            gs_img = cv.bitwise_not(gs_img)
-        elif to_binary:
-            _, gs_img = cv.threshold(gs_img, 120, 255, cv.THRESH_BINARY_INV)
-        elif to_zero:
-            _, gs_img = cv.threshold(gs_img, 120, 255, cv.THRESH_TOZERO_INV)
-        else:
-            gs_img = cv.bitwise_not(gs_img)
-    else:
-        if trunc:
-            _, gs_img = cv.threshold(gs_img, 127, 255, cv.THRESH_TRUNC)
-        elif to_zero:
-            _, gs_img = cv.threshold(gs_img, 120, 255, cv.THRESH_TOZERO)
-        elif to_binary:
-            _, gs_img = cv.threshold(gs_img, 120, 255, cv.THRESH_BINARY)
+        if inverted:
+            gs_img = cv.bitwise_not(gs_img)    
     
     return helpers.format_output_image_order(gs_img, order)
 
