@@ -210,8 +210,6 @@ minkowski : 2.924
 
 Concise explanation of `distance algorithms`_
 
-The demo script **find_similar_images** illustrates how to find similar images in a directory.
-
 
 Image Processing & Transformations
 ==================================
