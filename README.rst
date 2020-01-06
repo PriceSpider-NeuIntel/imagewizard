@@ -30,6 +30,9 @@ imagewizard is a python based library for performing various image manipulations
          * `Affine <https://github.com/Swaroop-p/imagewizard#skew---affine>`_
          
 4. `Image Analysis <https://github.com/Swaroop-p/imagewizard#image-analysis>`_
+      * `Dominant colors <https://github.com/Swaroop-p/imagewizard#dominant-colors>`_
+      * `Crop to content <https://github.com/Swaroop-p/imagewizard#crop-to-content>`_
+
 
 Image Hashing
 =============
@@ -633,7 +636,17 @@ For more information check this `documentation <https://opencv-python-tutroals.r
 Image Analysis
 ==============
 
+Dominant Colors
+_______________
+
 TBD
+
+
+Crop to Content
+_______________
+
+TBD
+
 
 Source hosted at github: https://github.com/Swaroop-p/imagewizard
 
