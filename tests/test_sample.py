@@ -109,15 +109,16 @@ def test_mirror():
 def test_crop():
     img = cv.imread('data/original_images/street.png')
     ip = imagewizard.Processing()
-    crop1 = ip.crop(img, start_x = 50, end_x = 100, start_y = 50, end_y = 100, is_percentage=True, order='bgr')
-    crop2 = ip.crop(img, 400, 1000, 0, 500, is_percentage=False, order='bgr')
-    
+    # crop1 = ip.crop(img, start_x = 50, end_x = 100, start_y = 50, end_y = 100, is_percentage=True, order='bgr')
+    # crop2 = ip.crop(img, 400, 1000, 0, 500, is_percentage=False, order='bgr')
+    crop3 = ip.crop(img, 0, 50, 0, 50, is_percentage=True, order='bgr')
     # cv.imshow('original', img)
     # cv.imshow('cropped 1', crop1)
     # cv.imshow('cropped 2', crop2)
-
-    cv.imwrite('crop1.png', crop1)
-    cv.imwrite('crop2.png', crop2)
+    cv.imshow('cropped 3', crop3)
+    # cv.imwrite('crop1.png', crop1)
+    # cv.imwrite('crop2.png', crop2)
+    cv.imwrite('crop3.png', crop3)
 
     cv.waitKey(0)
     cv.destroyAllWindows()
@@ -238,10 +239,10 @@ if __name__=="__main__":
     # test_hash_and_similarity()
     # test_resize_zoom()
     # test_rotate()
-    # test_crop()
+    test_crop()
     # test_mirror()
     # test_blur()
-    test_lum()
+    # test_lum()
     # test_binarize()
     # TODO: test image processing 
     # TODO: add coverage

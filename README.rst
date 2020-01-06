@@ -422,16 +422,19 @@ Parameters:
 >>> ip = imagewizard.Processing()
 
 >>> crop1 = ip.crop(img, start_x = 50, end_x = 100, start_y = 50, end_y = 100, is_percentage = True, order='bgr')
->>> cv2.imshow("Crop by %", rotate_by_90)
+>>> cv2.imshow("Crop % (a)", crop1)
 
 >>> crop2 = ip.crop(img, start_x = 400, end_x = 1000, start_y = 0, end_y = 500, is_percentage = False, order='bgr')
->>> cv2.imshow("Crop by px", rotate_by_90)
+>>> cv2.imshow("Crop by px", crop2)
 
-================  =================  ===================
-Original      	   Crop by %          Crop by px
-================  =================  ===================
-|t2_img|          |crop1|            |crop2|        
-================  =================  ===================
+>>> crop3 = ip.crop(img, start_x = 0, end_x = 50, start_y = 0, end_y = 50, is_percentage = True, order='bgr')
+>>> cv2.imshow("Crop % (b)", crop3)
+
+================  =================  =================  ===================
+Original      	   Crop % (a)         Crop by px         Crop % (b)       
+================  =================  =================  ===================
+|t2_img|          |crop1|            |crop2|            |crop3|            
+================  =================  =================  ===================
 
 Mirror
 ______ 
@@ -585,6 +588,8 @@ Source hosted at github: https://github.com/Swaroop-p/imagewizard
 .. |crop1| image:: tests/data/processed_images/crop/crop1.png
 
 .. |crop2| image:: tests/data/processed_images/crop/crop2.png
+
+.. |crop3| image:: tests/data/processed_images/crop/crop3.png
 
 
 .. |mir_x| image:: tests/data/processed_images/mirror/flip_x.png
