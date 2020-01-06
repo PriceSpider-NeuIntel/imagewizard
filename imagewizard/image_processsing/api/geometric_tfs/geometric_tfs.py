@@ -226,8 +226,10 @@ def skew_perspective(img,
     # and all the operations are performed. The image will be converted
     # back to specified order and returned as numpy.array
     img = helpers.image2BGR(img, order)
-    output_rows, output_cols = output_points[3:, :][0][0], output_points[
+    output_cols, output_rows = output_points[3:, :][0][0], output_points[
         3:, :][0][1]
+    print(output_cols, output_rows)
     img_matrix = cv.getPerspectiveTransform(input_points, output_points)
     skew_img = cv.warpPerspective(img, img_matrix, (output_cols, output_rows))
-    return helpers.format_output_image_order(skew_img, order)
+    return skew_img
+    # return helpers.format_output_image_order(skew_img, order)

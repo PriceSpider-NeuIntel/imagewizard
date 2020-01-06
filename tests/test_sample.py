@@ -2,6 +2,7 @@
 import sys
 import cv2 as cv
 sys.path.append("..")
+import numpy as np
 
 import imagewizard
 from PIL import Image
@@ -37,6 +38,40 @@ def test_colorspaces():
 
     cv.imshow('original', img)
     cv.imshow('processed', res)
+    cv.waitKey(0)
+    cv.destroyAllWindows()
+
+def test_skew():
+    img = cv.imread('data/original_images/skew.png')
+    ip = imagewizard.Processing()
+    
+    # # input_points: three points on input image, ex: np.float32([[50,50],[200,50],[50,200]])
+    # ip_points = np.float32([[50,50],[200,50],[50,200]])
+    # # output_points: three points on output location correspoinding to input_points' to be transformed, np.float32([[10,100],[200,50],[100,250]])
+    # op_points = np.float32([[10,100],[200,50],[100,250]])
+
+    # skew_affine = ip.skew_affine(img, ip_points, op_points, 'bgr')
+    
+    # input_points: four points on input image, ex: np.float32([[56,65],[368,52],[28,387],[389,390]])
+    # [(73, 239), (356, 117), (475, 265), (187, 443)]
+    # ip_per = np.float32([(250, 165), (631, 405), (98, 428), (474, 596)])
+    
+    # ip_per = np.float32([(100, 320), (475, 160), (640, 340), (250, 580)])
+    # # output_points: four points on output location correspoinding to input_points' to be transformed, ex: np.float32([[0,0],[300,0],[0,300],[300,300]])
+    # op_per = np.float32([[0,0], [300,0], [300,300], [0,300]])
+
+    ip_per = np.float32([(100, 320), (472, 156), (250, 580), (630, 345)])
+    op_per = np.float32([[0,0], [500,0], [0,350], [500,350]])
+
+    skew_per = ip.skew_perspective(img, ip_per, op_per, 'bgr')
+
+    cv.imshow("original", img)
+    # cv.imshow("skew affine image", skew_affine)
+    cv.imshow("skew perspective image", skew_per)
+
+    cv.imwrite('skew_per.png', skew_per)
+    
+
     cv.waitKey(0)
     cv.destroyAllWindows()
 
@@ -239,7 +274,8 @@ if __name__=="__main__":
     # test_hash_and_similarity()
     # test_resize_zoom()
     # test_rotate()
-    test_crop()
+    # test_crop()
+    test_skew()
     # test_mirror()
     # test_blur()
     # test_lum()

@@ -540,6 +540,45 @@ Brightness level decreased by 100  Original                           Brightness
 =================================  =================================  =================================
 
 
+Skew - Perspective
+__________________
+
+imagewizard provides methods to skew an image, aka, perspective tranformation. You need to provide 4 points on the input image and corresponding points on the output image. Among these 4 points, 3 of them should not be collinear.
+Following code demonstrates Perspective Transformation.
+
+>>> imagewizard.Processing().skew_perspective(img: Image, input_points: np.float32, output_points: np.float32, order: str)
+
+Parameters:
+
+* img: (numpy.array, PIL.image, cv2.image)
+* input_points: four points on input image, ex: np.float32([[x1,y1],[x2,y2],[x3,y3],[x4,y4]]), (xi, yi are floating point)
+* output_points: four points on output location correspoinding to input_points' to be transformed, ex: np.float32([[p1,q1],[p2,q2],[p3,q3],[p4,q4]]), (pi, qi are floating point)
+* order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
+
+>>> import cv2
+>>> img = cv2.imread('original_image.png')
+>>> ip = imagewizard.Processing()
+
+>>> input_points = np.float32([(100, 320), (472, 156), (250, 580), (630, 345)])
+>>> output_points = np.float32([[0,0], [500,0], [0,350], [500,350]])
+
+>>> skew_img = ip.skew_perspective(img, input_points = input_points, output_points = output_points, order = 'bgr')
+>>> cv.imshow('Perspective Transformation', skew_img)
+
+
+=================================  =================================
+Original                           Perspective Transformation       
+=================================  =================================
+|skew_per_org|                     |skew_per_tf|                        
+=================================  =================================
+
+
+* The green points on the input image specifies the coordinates of the pixels that will be mapped to output points.
+* The coordinates passed in the code above are in the order - TOP LEFT, TOP RIGHT, BOTTOM LEFT, BOTTOM RIGHT
+* The corresponding input pixel coordinates are - TL:(100, 320), TR:(472, 156), BL:(250, 580), BR:(630, 345)]
+* The corresponding output pixel coordinates are - TL:(0, 0), TR:(500, 0), BL:(0, 350), BR:(500, 350)]
+
+
 
 Image Analysis
 ==============
@@ -609,3 +648,10 @@ Source hosted at github: https://github.com/Swaroop-p/imagewizard
 .. |lum_100| image:: tests/data/processed_images/luminosity/lum_100.png
 
 .. |lum_neg_100| image:: tests/data/processed_images/luminosity/lum_neg_100.png
+
+
+.. |skew_per_org| image:: tests/data/original_images/skew.png
+
+.. |skew_per_tf| image:: tests/data/processed_images/skew/skew_per.png
+
+.. |skew_aff| image:: tests/data/processed_images/skew/skew_aff.png
