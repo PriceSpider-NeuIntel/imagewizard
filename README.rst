@@ -464,7 +464,7 @@ Parameters:
 * start_y: starting pixle coordinate along the y-axis/height of the image
 * end_y: ending pixle coordinate along the y-axis/height of the image
 * is_percentage: if True, the coordinates will be considered as percentages, default: False
-* order: (RGB, BGR) input order of the colors BGR/RGB, default: RGB  
+* order: (RGB, BGR) input order of the colors. If using PIL to read an image, 'order' need not be specified. If opencv is used to read an image, 'order' must be set to 'BGR'
 
 >>> import cv2
 >>> img = cv2.imread('original_image.png')
