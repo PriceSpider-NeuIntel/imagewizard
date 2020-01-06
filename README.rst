@@ -77,6 +77,7 @@ imagewizard.Hashing()
 * .whash(image, hash_size, order)
 
 Parameters:
+
 * image      - must be a PIL instance image or numpy array in RGB or opencv image in BGR  
 * hash_size  - (integer) default 8 for 64 bit hash  
 * order      - (string) RGB, BGR: input order of the colors BGR/RGB. Deafult order: RGB
