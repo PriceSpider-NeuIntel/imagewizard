@@ -15,9 +15,9 @@ imagewizard is a python based library for performing various image manipulations
       * `Mirror <https://github.com/Swaroop-p/imagewizard#mirror>`_
       * `Blur <https://github.com/Swaroop-p/imagewizard#blur>`_
       * `Luminosity (Brightness) <https://github.com/Swaroop-p/imagewizard#luminosity>`_
-      * `Skew <https://github.com/Swaroop-p/imagewizard>`_
-         * perspective
-         * affine
+      * `Skew <https://github.com/Swaroop-p/imagewizard#skew---perspective>`_
+         * `Perspective <https://github.com/Swaroop-p/imagewizard#skew---perspective>`_
+         * `Affine <https://github.com/Swaroop-p/imagewizard#skew---affine>`_
          
 4. `Image Analysis <https://github.com/Swaroop-p/imagewizard#image-analysis>`_
 
@@ -212,9 +212,9 @@ imagewizard provides the following image processing and transformations
 * `Mirror <https://github.com/Swaroop-p/imagewizard#mirror>`_
 * `Blur <https://github.com/Swaroop-p/imagewizard#blur>`_
 * `Luminosity (Brightness) <https://github.com/Swaroop-p/imagewizard#luminosity>`_
-* `Skew <https://github.com/Swaroop-p/imagewizard>`_
-   * perspective
-   * affine
+* `Skew <https://github.com/Swaroop-p/imagewizard#skew---perspective>`_
+      * `Perspective <https://github.com/Swaroop-p/imagewizard#skew---perspective>`_
+      * `Affine <https://github.com/Swaroop-p/imagewizard#skew---affine>`_
 
 
 Resize
