@@ -617,7 +617,7 @@ Original                           Affine Transformation
 * The corresponding input pixel coordinates are - TL:(50, 50), TR:(200, 50), BL:(50, 200)]
 * The corresponding output pixel coordinates are - TL:(10, 100), TR:(200, 50), BL:(100, 250)]
 
-For more information check this `documnetation <https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_geometric_transformations/py_geometric_transformations.html#affine-transformation>`_
+For more information check this `documentation <https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_geometric_transformations/py_geometric_transformations.html#affine-transformation>`_
 
 
 Image Analysis
