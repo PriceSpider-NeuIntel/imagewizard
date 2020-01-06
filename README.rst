@@ -543,7 +543,7 @@ Brightness level decreased by 100  Original                           Brightness
 Skew - Perspective
 __________________
 
-imagewizard provides methods to skew an image, aka, perspective tranformation. You need to provide 4 points on the input image and corresponding points on the output image. Among these 4 points, 3 of them should not be collinear.
+imagewizard provides methods to perspective tranform an image. You need to provide 4 points on the input image and corresponding points on the output image. Among these 4 points, 3 of them should not be collinear.
 Following code demonstrates Perspective Transformation.
 
 >>> imagewizard.Processing().skew_perspective(img: Image, input_points: np.float32, output_points: np.float32, order: str)
@@ -578,6 +578,46 @@ Original                           Perspective Transformation
 * The corresponding input pixel coordinates are - TL:(100, 320), TR:(472, 156), BL:(250, 580), BR:(630, 345)]
 * The corresponding output pixel coordinates are - TL:(0, 0), TR:(500, 0), BL:(0, 350), BR:(500, 350)]
 
+
+Skew - Affine
+_____________
+
+imagewizard provides methods to affine transform an image. In affine transformation, all parallel lines in the original image will still be parallel in the output image. Provide three points from input image and their corresponding locations in output image.
+Following code demonstrates Affine Transformation.
+
+>>> imagewizard.Processing().affine(img: Image, input_points: np.float32, output_points: np.float32, order: str)
+
+Parameters:
+
+* img: (numpy.array, PIL.image, cv2.image)
+* input_points: three points on input image, ex: np.float32([[x1,y1],[x2,y2],[x3,y3]]), (xi, yi are floating point)
+* output_points: three points on output location correspoinding to input_points' to be transformed, np.float32([[p1,q1],[p2,q2],[p3,q3]]), (pi, qi are floating point)
+* order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
+
+>>> import cv2
+>>> img = cv2.imread('original_image.png')
+>>> ip = imagewizard.Processing()
+
+>>> input_points = np.float32([[50,50],[200,50],[50,200]])
+>>> output_points = np.float32([[10,100],[200,50],[100,250]])
+
+>>> skew_img = ip.skew_perspective(img, input_points = input_points, output_points = output_points, order = 'bgr')
+>>> cv.imshow('Affine Transformation', skew_img)
+
+
+=================================  =================================
+Original                           Affine Transformation       
+=================================  =================================
+|skew_aff_org|                     |skew_aff_tf|                        
+=================================  =================================
+
+
+* The green points on the input image specifies the coordinates of the pixels that will be mapped to output points.
+* The coordinates passed in the code above are in the order - TOP LEFT, TOP RIGHT, BOTTOM LEFT
+* The corresponding input pixel coordinates are - TL:(50, 50), TR:(200, 50), BL:(50, 200)]
+* The corresponding output pixel coordinates are - TL:(10, 100), TR:(200, 50), BL:(100, 250)]
+
+For more information check this `documnetation <https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_geometric_transformations/py_geometric_transformations.html#affine-transformation>`_
 
 
 Image Analysis
@@ -654,4 +694,7 @@ Source hosted at github: https://github.com/Swaroop-p/imagewizard
 
 .. |skew_per_tf| image:: tests/data/processed_images/skew/skew_per.png
 
-.. |skew_aff| image:: tests/data/processed_images/skew/skew_aff.png
+
+.. |skew_aff_org| image:: tests/data/original_images/skew_aff_org.png
+
+.. |skew_aff_tf| image:: tests/data/processed_images/skew/skew_aff.png

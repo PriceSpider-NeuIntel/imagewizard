@@ -41,6 +41,21 @@ def test_colorspaces():
     cv.waitKey(0)
     cv.destroyAllWindows()
 
+def test_skew_affine():
+    img = cv.imread('data/original_images/skew_aff_org.png')
+    ip = imagewizard.Processing()
+    
+    ip_aff = np.float32([[50,50],[200,50],[50,200]])
+    op_aff = np.float32([[10,100],[200,50],[100,250]])
+
+    skew_aff = ip.skew_affine(img, ip_aff, op_aff, order='bgr')
+
+    cv.imshow("original", img)
+    cv.imshow("skew affine image", skew_aff)
+    cv.imwrite('skew_aff.png', skew_aff)
+    cv.waitKey(0)
+    cv.destroyAllWindows()
+
 def test_skew():
     img = cv.imread('data/original_images/skew.png')
     ip = imagewizard.Processing()
@@ -275,7 +290,8 @@ if __name__=="__main__":
     # test_resize_zoom()
     # test_rotate()
     # test_crop()
-    test_skew()
+    # test_skew()
+    test_skew_affine()
     # test_mirror()
     # test_blur()
     # test_lum()
