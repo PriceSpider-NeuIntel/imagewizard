@@ -4,8 +4,18 @@ imagewizard
 imagewizard is a python based library for performing various image manipulations and operations,
 
 1. `Image Hashing <https://github.com/Swaroop-p/imagewizard#image-hashing>`_
+      * `Average Hashing <https://github.com/Swaroop-p/imagewizard#average-hash-a-hash>`_
+      * `Distance Hashing <https://github.com/Swaroop-p/imagewizard#distance-hash-d-hash>`_
+      * `Perception Hashing <https://github.com/Swaroop-p/imagewizard#perception-hash-p-hash>`_
+      * `Wavelet Hashing <https://github.com/Swaroop-p/imagewizard#wavelet-hash-w-hash>`_
 
 2. `Image Similarity (hash distance computation) <https://github.com/Swaroop-p/imagewizard#image-similarity-hash-distance>`_
+      * `Hamming Distance <https://github.com/Swaroop-p/imagewizard#hamming-distance>`_
+      * `Cosine Distance <https://github.com/Swaroop-p/imagewizard#cosine-distance>`_
+      * `Euclidean Distance <https://github.com/Swaroop-p/imagewizard#euclidean-distance>`_
+      * `Manhattan Distance <https://github.com/Swaroop-p/imagewizard#manhattan-distance>`_
+      * `Jaccard Distance <https://github.com/Swaroop-p/imagewizard#jaccard-distance>`_
+      * `Minkowski Distance <https://github.com/Swaroop-p/imagewizard#minkowski-distance>`_
 
 3. `Image Processing and Transformations <https://github.com/Swaroop-p/imagewizard#image-processing--transformations>`_
       * `Resize/scale <https://github.com/Swaroop-p/imagewizard#resize>`_
@@ -622,6 +632,8 @@ For more information check this `documentation <https://opencv-python-tutroals.r
 
 Image Analysis
 ==============
+
+TBD
 
 Source hosted at github: https://github.com/Swaroop-p/imagewizard
 
