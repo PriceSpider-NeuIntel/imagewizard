@@ -167,6 +167,7 @@ imagewizard provides various distance algorithms for computing hash distances be
 The <metric> value can be one of the following-
 
 * hamming
+* cosine
 * euclidean
 * manhattan
 * jaccard
