@@ -25,7 +25,7 @@ setup(
     description="{{ imagewizard.package_description }}",
     long_description=read("README.rst"),
 
-    packages=find_packages(exclude=('tests',)),
+    packages=find_packages(exclude=('tests','demo',)),
 
     install_requires=[],
 
