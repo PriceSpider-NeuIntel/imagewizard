@@ -73,6 +73,7 @@ imagewizard.Hashing()
 
 * .ahash(image, hash_size, order)
 * .dhash(image, hash_size, order)
+      * hamming distance between 0 - 10, would indicate the images being compared are similar
 * .phash(image, hash_size, order)
 * .whash(image, hash_size, order)
 
@@ -98,6 +99,8 @@ cv2 a-hash: fefff80000000000
 
 Distance hash (d hash)
 ______________________
+
+* hamming distance between 0 - 10, would indicate the images being compared are similar
 
 >>> d_hash_pil = iw_hash.dhash(image = pil_image, hash_size = 8, order = 'RGB')
 >>> d_hash_cv2 = iw_hash.dhash(image = cv2_image, hash_size = 8, order = 'BGR')
