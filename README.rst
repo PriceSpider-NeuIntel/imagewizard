@@ -678,14 +678,164 @@ Image Analysis
 Dominant Colors
 _______________
 
-TBD
+imagewizard provides methods to find the 'n' dominant colors in an image. 
+Following code demonstrates using the function to get 'n' dominant colors in an image.
+
+>>> imagewizard.Analysis().dominant_colors(img: Image, no_of_colors: int = 3, order: str = 'rgb')
+
+Parameters:
+
+* img: (numpy.array, PIL.image, cv2.image)
+* no_of_colors: (int) no of dominant colors RGB to return
+* order: (RGB, BGR) input order of the colors. If using PIL to read an image, 'order' need not be specified. **If opencv is used to read an image, 'order' must be set to 'BGR'**
+
+>>> import cv2
+>>> from PIL import Image
+>>> img_cv = cv2.imread('original_image.png')
+>>> img_pil = Image.open("original_image.png")
+
+>>> imanalysis = imagewizard.Analysis()
+>>> img_cv_result = imanalysis.dominant_colors(img_pil, 3, 'rgb')
+>>> img_pil_result = imanalysis.dominant_colors(img_cv, 3, 'bgr')
+
+>>> print("CV image - dominant colors (RGB) : ", img_cv_result)
+CV image - dominant colors (RGB) : [[191, 92, 97], [222, 156, 139], [111, 36, 73]]
+
+=============  ================ ================ ================ ================
+Original       Clustered Image  Color 1          Color 2          Color 3
+=============  ================ ================ ================ ================
+|lenna_org|    |clustered_im|   |cv_dom_c0|      |cv_dom_c1|      |cv_dom_c2|                        
+=============  ================ ================ ================ ================
+
+>>> print("PIL image - dominant colors (RGB) : ", img_pil_result)
+PIL image - dominant colors (RGB) : [[220, 152, 136], [106, 33, 72], [186, 86, 94]]
+
+=============  ================ ================ ================ ================
+Original       Clustered Image  Color 1          Color 2          Color 3
+=============  ================ ================ ================ ================
+|lenna_org|    |clustered_im|   |pil_dom_c0|     |pil_dom_c1|     |pil_dom_c2|                        
+=============  ================ ================ ================ ================
 
 
-Crop to Content
-_______________
+Trim/Crop to Content
+____________________
 
-TBD
+imagewizard provides methods to Trim/Crop an image to its content (removes uniform color spaced padding around the image) 
+Following code demonstrates using the function to trim an image
 
+>>> imagewizard.Analysis().trim_to_content(img: Image, order: str = 'rgb')
+
+Parameters:
+
+* img: (numpy.array, PIL.image, cv2.image)
+* order: (RGB, BGR) input order of the colors. If using PIL to read an image, 'order' need not be specified. **If opencv is used to read an image, 'order' must be set to 'BGR'**
+
+Returns:
+
+* PIL/numpy.array of the order specified
+
+>>> import cv2
+>>> from PIL import Image
+>>> img_cv = cv2.imread('original_image.png')
+>>> img_pil = Image.open("original_image.png")
+
+>>> imanalysis = imagewizard.Analysis()
+>>> img_cv_result = imanalysis.trim_to_content(img_cv, 'bgr')
+>>> img_pil_result = imanalysis.trim_to_content(img_pil)
+
+>>> cv.imshow("original", img_cv)
+>>> cv.imshow("Trimmed Image", img_cv_result)
+>>> img_pil_result.show()
+
+================  =================
+Original          Trimmed Image    
+================  ================= 
+|quite_flow_org|  |quite_flow_trim| 
+================  =================
+
+================  =================
+Original          Trimmed Image    
+================  =================
+|san_disk_org|    |san_disk_trim|
+================  =================
+
+
+Average/Mean Color
+__________________
+
+imagewizard provides methods that calculates and returns the mean/average color of an image
+Following code demonstrates using the function to get the average pixel color in RGB
+
+>>> imagewizard.Analysis().mean_color(img: Image, order: str = 'rgb')
+
+Parameters:
+
+* img: (numpy.array, PIL.image, cv2.image)
+* order: (RGB, BGR) input order of the colors. If using PIL to read an image, 'order' need not be specified. **If opencv is used to read an image, 'order' must be set to 'BGR'**
+
+Returns:
+
+* Tuple of RGB values of the mean color calculated
+
+>>> import cv2
+>>> from PIL import Image
+>>> img_cv = cv2.imread('original_image.png')
+>>> img_pil = Image.open("original_image.png")
+
+>>> imanalysis = imagewizard.Analysis()
+>>> img_cv_result = imanalysis.mean_color(img_pil, 'rgb')
+>>> img_pil_result = imanalysis.mean_color(img_cv, 'bgr')
+
+>>> print("PIL image - mean color (RGB) :", img_cv_result)
+PIL image - mean color (RGB) : (180, 99, 105)
+
+>>> print("CV image - mean color (RGB) :", img_cv_result)
+CV image - mean color (RGB) : (180, 99, 105)
+
+===================  ===================
+Original             Average/Mean Color    
+===================  ===================     
+|lenna_org_ave|      |lenna_result_ave|
+===================  ===================    
+
+
+Frequent Color
+______________
+
+imagewizard provides methods that calculates and returns the frequent/mode color of an image
+Following is the demonstration code,
+
+>>> imagewizard.Analysis().frequent_color(img: Image, order: str = 'rgb')
+
+Parameters:
+
+* img: (numpy.array, PIL.image, cv2.image)
+* order: (RGB, BGR) input order of the colors. If using PIL to read an image, 'order' need not be specified. **If opencv is used to read an image, 'order' must be set to 'BGR'**
+
+Returns:
+
+* Tuple of RGB values of the mode color calculated
+
+>>> import cv2
+>>> from PIL import Image
+>>> img_cv = cv2.imread('original_image.png')
+>>> img_pil = Image.open("original_image.png")
+
+>>> imanalysis = imagewizard.Analysis()
+>>> img_cv_result = imanalysis.frequent_color(img_pil, 'rgb')
+>>> img_pil_result = imanalysis.frequent_color(img_cv, 'bgr')
+
+>>> print("PIL image - frequent color (RGB) :", img_cv_result)
+PIL image - frequent color (RGB) : (88, 18, 60)
+
+>>> print("CV image - frequent color (RGB) :", img_cv_result)
+CV image - frequent color (RGB) : (88, 18, 60)
+
+===================  ===================      
+Original             Frequent/Mode Color    
+===================  ===================      
+|lenna_org_mode|     |lenna_result_mode|
+===================  ===================  
 
 Source hosted at github: https://github.com/Swaroop-p/imagewizard
 
@@ -762,3 +912,28 @@ Source hosted at github: https://github.com/Swaroop-p/imagewizard
 .. |skew_aff_org| image:: tests/data/original_images/skew_aff_org.png
 
 .. |skew_aff_tf| image:: tests/data/processed_images/skew/skew_aff.png
+
+
+.. ########## dominant colors ###########
+.. |pil_dom_c0| image:: tests/data/analysed_images/dominant/centroid_color_0.jpg
+.. |pil_dom_c1| image:: tests/data/analysed_images/dominant/centroid_color_1.jpg
+.. |pil_dom_c2| image:: tests/data/analysed_images/dominant/centroid_color_2.jpg
+.. |cv_dom_c0| image:: tests/data/analysed_images/dominant/centroid_color_0_cv.jpg
+.. |cv_dom_c1| image:: tests/data/analysed_images/dominant/centroid_color_1_cv.jpg
+.. |cv_dom_c2| image:: tests/data/analysed_images/dominant/centroid_color_2_cv.jpg
+.. |clustered_im| image:: tests/data/analysed_images/dominant/clustered_image.jpg
+
+.. ########## mean colors ###########
+.. |lenna_org_ave| image:: tests/data/analysed_images/mean/lenna-original-ave.jpg
+.. |lenna_result_ave| image:: tests/data/analysed_images/mean/lenna-result-ave.jpg
+
+.. ########## frerquent colors ###########
+.. |lenna_org_mode| image:: tests/data/analysed_images/mode/lenna-original-mode.jpg
+.. |lenna_result_mode| image:: tests/data/analysed_images/mode/lenna-result-mode.jpg
+
+.. ########## crop/trim to content ###########
+.. |quite_flow_trim| image:: tests/data/analysed_images/crop_to_content/trimmed_quite_flow10.png
+.. |san_disk_trim| image:: tests/data/analysed_images/crop_to_content/trimmed_san_disk.png
+
+.. |quite_flow_org| image:: tests/data/quiet_flow10.png
+.. |san_disk_org| image:: tests/data/san_disk_white_pad.png

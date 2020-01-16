@@ -56,9 +56,9 @@ def hash_to_binary_array(value) -> [int]:
     return value
 
 
-def format_image_for_hashing(image, order):
+def format_image_to_PIL(image, order):
     """
-    convert an image of type PIL or opencv2 image to a numpy array of order BGR/RGB
+    convert an image of type PIL or opencv2 image or numpy array to a PIL image
     """
     if isinstance(image, np.ndarray) and order.lower() in ['bgr', 'rgb']:
         if order.lower() == 'bgr':            

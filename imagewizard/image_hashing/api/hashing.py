@@ -19,7 +19,7 @@ class Hashing():
         Returns:
             <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
         """
-        image = helpers.format_image_for_hashing(image, order)
+        image = helpers.format_image_to_PIL(image, order)
         return ahash(image, hash_size)
 
     def dhash(self, image, hash_size=8, order: str = 'rgb'):
@@ -32,7 +32,7 @@ class Hashing():
         Returns:
             <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
         """
-        image = helpers.format_image_for_hashing(image, order)
+        image = helpers.format_image_to_PIL(image, order)
         return dhash(image, hash_size)
 
     def dhash_vertical(self, image, hash_size=8, order: str = 'rgb'):
@@ -45,7 +45,7 @@ class Hashing():
         Returns:
             <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
         """
-        image = helpers.format_image_for_hashing(image, order)
+        image = helpers.format_image_to_PIL(image, order)
         return dhash_vertical(image, hash_size)
 
     def phash(self, image, hash_size=8, highfreq_factor=4, order: str = 'rgb'):
@@ -58,7 +58,7 @@ class Hashing():
         Returns:
             <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
         """
-        image = helpers.format_image_for_hashing(image, order)
+        image = helpers.format_image_to_PIL(image, order)
         return phash(image, hash_size, highfreq_factor)
 
     def phash_simple(self,
@@ -75,7 +75,7 @@ class Hashing():
         Returns:
             <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
         """
-        image = helpers.format_image_for_hashing(image, order)
+        image = helpers.format_image_to_PIL(image, order)
         return phash_simple(image, hash_size, highfreq_factor)
 
     def whash(self,
@@ -98,5 +98,5 @@ class Hashing():
         Returns:
             <ImageHash> object. To get the hash value simply use - str(<ImageHash>)
         """
-        image = helpers.format_image_for_hashing(image, order)
+        image = helpers.format_image_to_PIL(image, order)
         return whash(image, hash_size, image_scale, mode, remove_max_haar_ll)
