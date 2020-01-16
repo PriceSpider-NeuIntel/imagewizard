@@ -10,12 +10,12 @@ class TestSimilarity(unittest.TestCase):
     test_x_hash = ['0x4bd1', 0x4bd1, [0, 1, 1, 0, 1]] 
     test_y_hash = [0x5bd2, 5, [1, 0, 0, 0, 1, 0, 0]]
     
-    hamming_result = [3, 13, 5]
-    euclidean_result = [1.7320508075688772, 1.0, 1.7320508075688772]
+    hamming_result = [3, 8, 5]
+    euclidean_result = [1.7320508075688772, 2.8284271247461903, 1.7320508075688772]
     cosine_result = [0.825, 0.25, 0.408]
-    manhattan_result = [3, 13, 5]
+    manhattan_result = [3, 8, 5]
     jaccard_result = [1.0, 1, 1.0]
-    minkowski_result = [1.442, 1.0, 1.442]
+    minkowski_result = [1.442, 2.0, 1.442]
 
     def test_hamming_distance(self):
         for a, b, actual_result in zip(self.test_x_hash, self.test_y_hash, self.hamming_result):

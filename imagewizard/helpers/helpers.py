@@ -40,9 +40,9 @@ def hex_to_bin(value: hex) -> bin:
 
 def hash_to_binary_array(value) -> [int]:
     """
-    convert a hexadecimal hash to array of binary values
-    0xf     -> [1,1,1,1]
-    '0xf'   -> [1,1,1,1]
+    convert a hexadecimal hash to array of binary values padded with 0's to form 64 bit string
+    0xf     -> [0..., 1,1,1,1]
+    '0xf'   -> [0..., 1,1,1,1]
     """
     if isinstance(value, str):
         # if value is hex string -> convert value to int
@@ -52,7 +52,7 @@ def hash_to_binary_array(value) -> [int]:
         value = list(map(int, value))
     if isinstance(value, int):
         # converting int to binary array
-        value = [int(x) for x in list('{0:0b}'.format(value))]
+        value = [int(x) for x in list('{0:0b}'.format(value).zfill(64))]
     return value
 
 
