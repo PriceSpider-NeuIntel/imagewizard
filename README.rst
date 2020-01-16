@@ -753,15 +753,11 @@ Original          Trimmed Image
 ----------------  -----------------
 |quite_flow_org|  |quite_flow_trim| 
 ================  =================
-False             False  False
-================  =================
 
 ================  =================
 Original          Trimmed Image    
 ----------------  -----------------
 |san_disk_org|    |san_disk_trim|
-================  =================
-False             False  False
 ================  =================
 
 
