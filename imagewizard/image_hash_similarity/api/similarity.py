@@ -1,5 +1,6 @@
 from imagewizard.image_hash_similarity.api.distance_algorithms import DistanceAlgorithms
 from imagewizard.helpers.helpers import hash_to_binary_array
+from imagewizard.image_hashing.api.hash_algorithms import ImageHash
 """ Class containing method to calculate various distances between image hashes """
 
 class Similarity():
@@ -17,6 +18,11 @@ class Similarity():
             similarity measure score
         """
         measures = DistanceAlgorithms()
+
+        # if hash values are of type ImageHash, convert to str
+        value_src = str(value_src) if isinstance(value_src, ImageHash) else value_src
+        value_query = str(value_query) if isinstance(value_query, ImageHash) else value_query
+
         value_src, value_query = hash_to_binary_array(
             value_src), hash_to_binary_array(value_query)
 
