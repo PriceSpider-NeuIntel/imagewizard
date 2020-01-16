@@ -31,8 +31,9 @@ imagewizard is a python based library for performing various image manipulations
          
 4. `Image Analysis <https://github.com/Swaroop-p/imagewizard#image-analysis>`_
       * `Dominant colors <https://github.com/Swaroop-p/imagewizard#dominant-colors>`_
-      * `Crop to content <https://github.com/Swaroop-p/imagewizard#crop-to-content>`_
-
+      * `Average/Mean Color <https://github.com/Swaroop-p/imagewizard#averagemean-color>`_
+      * `Frequent/Mode Color <https://github.com/Swaroop-p/imagewizard#frequent-color>`_
+      * `Trim/Crop to content <https://github.com/Swaroop-p/imagewizard#trimcrop-to-content>`_
 
 Image Hashing
 =============
@@ -718,49 +719,6 @@ Original       Clustered Image  Color 1          Color 2          Color 3
 =============  ================ ================ ================ ================
 
 
-Trim/Crop to Content
-____________________
-
-imagewizard provides methods to Trim/Crop an image to its content (removes uniform color spaced padding around the image) 
-Following code demonstrates using the function to trim an image
-
->>> imagewizard.Analysis().trim_to_content(img: Image, order: str = 'rgb')
-
-Parameters:
-
-* img: (numpy.array, PIL.image, cv2.image)
-* order: (RGB, BGR) input order of the colors. If using PIL to read an image, 'order' need not be specified. **If opencv is used to read an image, 'order' must be set to 'BGR'**
-
-Returns:
-
-* PIL/numpy.array of the order specified
-
->>> import cv2
->>> from PIL import Image
->>> img_cv = cv2.imread('original_image.png')
->>> img_pil = Image.open("original_image.png")
-
->>> imanalysis = imagewizard.Analysis()
->>> img_cv_result = imanalysis.trim_to_content(img_cv, 'bgr')
->>> img_pil_result = imanalysis.trim_to_content(img_pil)
-
->>> cv.imshow("original", img_cv)
->>> cv.imshow("Trimmed Image", img_cv_result)
->>> img_pil_result.show()
-
-================  =================
-Original          Trimmed Image    
-----------------  -----------------
-|quite_flow_org|  |quite_flow_trim| 
-================  =================
-
-================  =================
-Original          Trimmed Image    
-----------------  -----------------
-|san_disk_org|    |san_disk_trim|
-================  =================
-
-
 Average/Mean Color
 __________________
 
@@ -837,6 +795,50 @@ Original             Frequent/Mode Color
 ===================  ===================      
 |lenna_org_mode|     |lenna_result_mode|
 ===================  ===================  
+
+
+Trim/Crop to Content
+____________________
+
+imagewizard provides methods to Trim/Crop an image to its content (removes uniform color spaced padding around the image) 
+Following code demonstrates using the function to trim an image
+
+>>> imagewizard.Analysis().trim_to_content(img: Image, order: str = 'rgb')
+
+Parameters:
+
+* img: (numpy.array, PIL.image, cv2.image)
+* order: (RGB, BGR) input order of the colors. If using PIL to read an image, 'order' need not be specified. **If opencv is used to read an image, 'order' must be set to 'BGR'**
+
+Returns:
+
+* PIL/numpy.array of the order specified
+
+>>> import cv2
+>>> from PIL import Image
+>>> img_cv = cv2.imread('original_image.png')
+>>> img_pil = Image.open("original_image.png")
+
+>>> imanalysis = imagewizard.Analysis()
+>>> img_cv_result = imanalysis.trim_to_content(img_cv, 'bgr')
+>>> img_pil_result = imanalysis.trim_to_content(img_pil)
+
+>>> cv.imshow("original", img_cv)
+>>> cv.imshow("Trimmed Image", img_cv_result)
+>>> img_pil_result.show()
+
+================  =================
+Original          Trimmed Image    
+----------------  -----------------
+|quite_flow_org|  |quite_flow_trim| 
+================  =================
+
+================  =================
+Original          Trimmed Image    
+----------------  -----------------
+|san_disk_org|    |san_disk_trim|
+================  =================
+
 
 Source hosted at github: https://github.com/Swaroop-p/imagewizard
 
