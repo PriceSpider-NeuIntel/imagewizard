@@ -697,8 +697,8 @@ Parameters:
 >>> img_pil = Image.open("original_image.png")
 
 >>> imanalysis = imagewizard.Analysis()
->>> img_cv_result = imanalysis.dominant_colors(img_pil, 3, 'rgb')
->>> img_pil_result = imanalysis.dominant_colors(img_cv, 3, 'bgr')
+>>> img_cv_result = imanalysis.dominant_colors(img_pil, 3, 'bgr')
+>>> img_pil_result = imanalysis.dominant_colors(img_cv, 3, 'rgb')
 
 >>> print("CV image - dominant colors (RGB) : ", img_cv_result)
 CV image - dominant colors (RGB) : [[224 166 147]
@@ -746,8 +746,8 @@ Returns:
 >>> img_pil = Image.open("original_image.png")
 
 >>> imanalysis = imagewizard.Analysis()
->>> img_cv_result = imanalysis.mean_color(img_pil, 'rgb')
->>> img_pil_result = imanalysis.mean_color(img_cv, 'bgr')
+>>> img_cv_result = imanalysis.mean_color(img_pil, 'bgr')
+>>> img_pil_result = imanalysis.mean_color(img_cv, 'rgb')
 
 >>> print("PIL image - mean color (RGB) :", img_cv_result)
 PIL image - mean color (RGB) : (180, 99, 105)
@@ -785,8 +785,8 @@ Returns:
 >>> img_pil = Image.open("original_image.png")
 
 >>> imanalysis = imagewizard.Analysis()
->>> img_cv_result = imanalysis.frequent_color(img_pil, 'rgb')
->>> img_pil_result = imanalysis.frequent_color(img_cv, 'bgr')
+>>> img_cv_result = imanalysis.frequent_color(img_pil, 'bgr')
+>>> img_pil_result = imanalysis.frequent_color(img_cv, 'rgb')
 
 >>> print("PIL image - frequent color (RGB) :", img_cv_result)
 PIL image - frequent color (RGB) : (88, 18, 60)
