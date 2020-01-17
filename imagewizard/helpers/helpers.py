@@ -61,7 +61,7 @@ def format_image_to_PIL(image, order):
     convert an image of type PIL or opencv2 image or numpy array to a PIL image
     """
     if isinstance(image, np.ndarray) and order.lower() in ['bgr', 'rgb']:
-        if order.lower() == 'bgr':            
+        if order.lower() == 'bgr':
             return PIL.Image.fromarray(BGR2RGB(image))
         else:
             return PIL.Image.fromarray(image)
@@ -120,7 +120,8 @@ def image2BGR(img, order):
     if isinstance(img, np.ndarray):
         if order.lower() == 'rgb':
             img = RGB2BGR(img)
-    elif isinstance(img, PIL.JpegImagePlugin.JpegImageFile):
+    elif isinstance(img, PIL.JpegImagePlugin.JpegImageFile) or isinstance(
+            img, PIL.Image.Image):
         img = PIL2BGR(img)
     else:
         raise ValueError(

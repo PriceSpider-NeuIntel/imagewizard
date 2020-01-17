@@ -701,7 +701,9 @@ Parameters:
 >>> img_pil_result = imanalysis.dominant_colors(img_cv, 3, 'bgr')
 
 >>> print("CV image - dominant colors (RGB) : ", img_cv_result)
-CV image - dominant colors (RGB) : [[191, 92, 97], [222, 156, 139], [111, 36, 73]]
+CV image - dominant colors (RGB) : [[224 166 147]
+ [110  34  71]
+ [195  98 100]]
 
 =============  ================ ================ ================ ================
 Original       Clustered Image  Color 1          Color 2          Color 3
@@ -710,7 +712,9 @@ Original       Clustered Image  Color 1          Color 2          Color 3
 =============  ================ ================ ================ ================
 
 >>> print("PIL image - dominant colors (RGB) : ", img_pil_result)
-PIL image - dominant colors (RGB) : [[220, 152, 136], [106, 33, 72], [186, 86, 94]]
+PIL image - dominant colors (RGB) : [[224 166 147]
+ [110  34  71]
+ [195  98 100]]
 
 =============  ================ ================ ================ ================
 Original       Clustered Image  Color 1          Color 2          Color 3

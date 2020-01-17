@@ -1,5 +1,5 @@
 from imagewizard.helpers import helpers
-from .kmeans_colors import Kmeans
+from .dominant_colors import DominantColors
 
 
 def frequent_color(image):
@@ -43,13 +43,10 @@ def mean_color(img):
 def dominant_colors(image, no_of_colors: int = 3):
     """ Return n dominant colors in an image
         Params:
-            image: (PIL.image)
-            no_of_colors: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
+            image: (numpy array in BGR, cv image)
+            no_of_colors: number of dominant colors to be returned, defaults to 3
         Returns:
-            Array of tuples of RGB values correspoinding to dominant colors
+            Array of RGB values correspoinding to dominant colors
     """
-    k = Kmeans()
-    k.k = no_of_colors
-    res = k.run(image)
-    dominant_rgb_list = [list(map(int, tup)) for tup in res]
-    return dominant_rgb_list
+    dc = DominantColors(no_of_colors = no_of_colors)
+    return dc.dominant_colors(image)
