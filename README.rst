@@ -279,11 +279,11 @@ Color 1          Color 2          Color 3
 >>> cv2.imshow('Segmented Image', cv_result)
 >>> pil_res_im.show()
 
-================  ================
-Original          Segmented Image 
-================  ================
-|lenna_org|       |clustered_im|  
-================  ================
+===============  ===============
+Original         Segmented Image
+===============  ===============
+|lenna_org|      |segmented_im| 
+===============  ===============
 
 
 Resize
@@ -758,6 +758,8 @@ Original       Clustered Image  Color 1          Color 2          Color 3
 |lenna_org|    |clustered_im|   |cv_dom_c0|      |cv_dom_c1|      |cv_dom_c2|                        
 =============  ================ ================ ================ ================
 
+* The Clustered Image can be constructed with `Segmentation <https://github.com/Swaroop-p/imagewizard#segmentation>`_ method of imagewizard
+
 >>> print("PIL image - dominant colors (RGB) : ", img_pil_result)
 PIL image - dominant colors (RGB) : [[224 166 147]
  [110  34  71]
@@ -991,3 +993,5 @@ Source hosted at github: https://github.com/Swaroop-p/imagewizard
 
 .. |quite_flow_org| image:: tests/data/quiet_flow10.png
 .. |san_disk_org| image:: tests/data/san_disk_white_pad.png
+
+.. |segmented_im| image:: tests/data/processed_images/segmented_image.png
