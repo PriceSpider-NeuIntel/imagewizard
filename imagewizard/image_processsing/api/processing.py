@@ -171,3 +171,15 @@ class Processing():
         """
         # TODO: check input_points data type and output_points data type
         return gt.skew_affine(img, input_points, output_points, order)
+    
+    def segmentation(self, img, rgb_list: [[int]], order: str = 'rgb'):
+        """ reconstruct an image with only a specified list of colors
+            Params:
+                img: (numpy.array, PIL.image, cv2.image)
+                rgb_list: 2 dimensional np array with shape (n,3) 3 being the channel values in order RGB, eg: [[224, 166, 147], [110, 34, 71], [195, 98, 100]]
+                order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
+                    Note: The output will be a numpy.array of the same order
+            Returns:
+                numpy.array of the order specified
+        """
+        return ct.image_segmentation(img, rgb_list, order)

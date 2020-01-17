@@ -55,7 +55,7 @@ def resize(img,
         dim = (int(width / 2), int(height / 2))
 
     res_img = cv.resize(img, dim, interpolation=interpolation)
-    return helpers.format_output_image_order(res_img, order)
+    return helpers.format_output_order_input_BGR(res_img, order)
 
 
 def rotate(img,
@@ -87,7 +87,7 @@ def rotate(img,
     img_matrix = cv.getRotationMatrix2D(center, rotation_degree,
                                         scaling_factor)
     rotated_image = cv.warpAffine(img, img_matrix, (width, height))
-    return helpers.format_output_image_order(rotated_image, order)
+    return helpers.format_output_order_input_BGR(rotated_image, order)
 
 
 def crop(img,
@@ -157,7 +157,7 @@ def crop(img,
     if not err_msg == '':
         raise ValueError(err_msg)
     cropped_image = img[int(start_y):int(end_y), int(start_x):int(end_x)]
-    return helpers.format_output_image_order(cropped_image, order)
+    return helpers.format_output_order_input_BGR(cropped_image, order)
 
 
 def mirror(img, flip_code: int, order: str):
@@ -179,7 +179,7 @@ def mirror(img, flip_code: int, order: str):
 
     if flip_code in [0, 1, -1]:
         mirrored_image = cv.flip(img, flip_code)
-        return helpers.format_output_image_order(mirrored_image, order)
+        return helpers.format_output_order_input_BGR(mirrored_image, order)
     else:
         raise ValueError("flip code must be 0, 1 or -1")
 
@@ -205,7 +205,7 @@ def skew_affine(img,
     rows, cols, _ch = img.shape
     img_matrix = cv.getAffineTransform(input_points, output_points)
     affine_skew_img = cv.warpAffine(img, img_matrix, (cols, rows))
-    return helpers.format_output_image_order(affine_skew_img, order)
+    return helpers.format_output_order_input_BGR(affine_skew_img, order)
 
 
 def skew_perspective(img,
@@ -232,4 +232,4 @@ def skew_perspective(img,
     img_matrix = cv.getPerspectiveTransform(input_points, output_points)
     skew_img = cv.warpPerspective(img, img_matrix, (output_cols, output_rows))
     return skew_img
-    # return helpers.format_output_image_order(skew_img, order)
+    # return helpers.format_output_order_input_BGR(skew_img, order)

@@ -18,6 +18,7 @@ imagewizard is a python based library for performing various image manipulations
       * `Minkowski Distance <https://github.com/Swaroop-p/imagewizard#minkowski-distance>`_
 
 3. `Image Processing and Transformations <https://github.com/Swaroop-p/imagewizard#image-processing--transformations>`_
+      * `Segmentation <https://github.com/Swaroop-p/imagewizard#segmentation>`_
       * `Resize/scale <https://github.com/Swaroop-p/imagewizard#resize>`_
       * `Convert to gray scale <https://github.com/Swaroop-p/imagewizard#gray-scale>`_
       * `Rotate <https://github.com/Swaroop-p/imagewizard#rotate>`_
@@ -227,6 +228,7 @@ Image Processing & Transformations
 
 imagewizard provides the following image processing and transformations
 
+* `Segmentation <https://github.com/Swaroop-p/imagewizard#segmentation>`_
 * `Resize/scale <https://github.com/Swaroop-p/imagewizard#resize>`_
 * `Convert to gray scale <https://github.com/Swaroop-p/imagewizard#gray-scale>`_
 * `Rotate <https://github.com/Swaroop-p/imagewizard#rotate>`_
@@ -239,12 +241,57 @@ imagewizard provides the following image processing and transformations
       * `Affine <https://github.com/Swaroop-p/imagewizard#skew---affine>`_
 
 
+Segmentation
+____________
+
+imagewizard provides methods for image segmentation, i.e, reconstructing a given image with a given set of colors alone. Every pixel in the original image is mapped to its nearest color from the set of colors and reconstructed.
+The following code demonstrates image segmentation of the famous picture of lenna with three colors (RGB values),
+
+* [224 166 147]
+* [110  34  71]
+* [195  98 100]
+
+>>> imagewizard.Processing().segmentation(img, rgb_list: [[int]], order: str = 'rgb')
+
+Parameters:
+
+* img: (numpy.array, PIL.image, cv2.image)
+* rgb_list: 2 dimensional np array with shape (n,3) 3 being the channel values in order RGB, eg: [[224, 166, 147], [110, 34, 71], [195, 98, 100]]
+* order: (RGB, BGR) input order of the colors BGR/RGB. Deafult order: RGB
+      Note: The output will be a numpy.array of the same order
+
+>>> cv_img = cv.imread('data/original_images/lenna.png')
+>>> pil_img = Image.open('data/original_images/lenna.png')
+>>> ip = imagewizard.Processing()
+>>> rgb_colors_list = [[224, 166, 147], [110, 34, 71], [195, 98, 100]]
+
+================ ================ ================
+Color 1          Color 2          Color 3
+================ ================ ================
+|cv_dom_c0|      |cv_dom_c1|      |cv_dom_c2|                        
+================ ================ ================
+
+>>> cv_result = ip.segmentation(cv_img, rgb_colors_list, 'bgr')
+>>> pil_result = ip.segmentation(pil_img, rgb_colors_list, 'rgb')
+>>> pil_res_im = Image.fromarray(pil_res)
+
+>>> cv2.imshow("original image", cv_img)
+>>> cv2.imshow('Segmented Image', cv_result)
+>>> pil_res_im.show()
+
+================  ================
+Original          Segmented Image 
+================  ================
+|lenna_org|       |clustered_im|  
+================  ================
+
+
 Resize
 ______
 
 imagewizard provides methods to resize/scale an image to desired pixel (width x height),
 
->>> imagewizard.Processing().resize(img, interpolation_method: str, resize_width: int, resize_height: int, resize_percentage: float, order: str')
+>>> imagewizard.Processing().resize(img, interpolation_method: str, resize_width: int, resize_height: int, resize_percentage: float, order: str = 'rgb')
 
 Parameters:
 

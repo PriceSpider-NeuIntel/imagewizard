@@ -14,4 +14,4 @@ def blur(img, kernel_size: int, order: str):
 
     k = kernel_size
     blur_img = cv.blur(img, (k, k))
-    return helpers.format_output_image_order(blur_img, order)
+    return helpers.format_output_order_input_BGR(blur_img, order)

@@ -128,8 +128,17 @@ def image2BGR(img, order):
             'parameter img is not a PIL image, cv2 image or numpy array')
     return img
 
+def format_output_order_input_RGB(img, order):
+    """
+    img will be RGB array.
+    return the image as numpy.array in the order specified
+    defaults to RGB
+    """
+    if order == 'bgr':
+        return RGB2BGR(img)
+    return img
 
-def format_output_image_order(img, order):
+def format_output_order_input_BGR(img, order):
     """
     img will be BGR array
     return the image as numpy.array in the order specified
@@ -138,3 +147,7 @@ def format_output_image_order(img, order):
     if order == 'rgb':
         return BGR2RGB(img)
     return img
+
+def calculate_distance(a, b):
+    result = np.sqrt(sum((a - b)**2))
+    return result
