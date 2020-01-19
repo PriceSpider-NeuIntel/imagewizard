@@ -991,7 +991,7 @@ Source hosted at github: https://github.com/Swaroop-p/imagewizard
 .. |quite_flow_trim| image:: tests/data/analysed_images/crop_to_content/trimmed_quite_flow10.png
 .. |san_disk_trim| image:: tests/data/analysed_images/crop_to_content/trimmed_san_disk.png
 
-.. |quite_flow_org| image:: tests/data/quiet_flow10.png
-.. |san_disk_org| image:: tests/data/san_disk_white_pad.png
+.. |quite_flow_org| image:: tests/data/original_images/quiet_flow10.png
+.. |san_disk_org| image:: tests/data/original_images/san_disk_white_pad.png
 
 .. |segmented_im| image:: tests/data/processed_images/segmented_image.png
