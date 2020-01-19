@@ -3,10 +3,6 @@ from imagewizard.image_hashing.api.hash_algorithms import ahash, dhash_vertical,
 from imagewizard.helpers import helpers
 """ Class containing method to perform various hashing on image """
 
-with open(os.path.join(os.path.abspath(os.path.dirname(__file__)),
-                       'VERSION')) as fi:
-    __version__ = fi.read().strip()
-
 
 class Hashing():
     def ahash(self, image, hash_size: int = 8, order: str = 'rgb'):

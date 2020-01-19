@@ -228,7 +228,6 @@ def skew_perspective(img,
     img = helpers.image2BGR(img, order)
     output_cols, output_rows = output_points[3:, :][0][0], output_points[
         3:, :][0][1]
-    print(output_cols, output_rows)
     img_matrix = cv.getPerspectiveTransform(input_points, output_points)
     skew_img = cv.warpPerspective(img, img_matrix, (output_cols, output_rows))
     return skew_img

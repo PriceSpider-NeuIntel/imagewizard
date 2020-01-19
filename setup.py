@@ -4,6 +4,10 @@ import re
 
 from setuptools import find_packages
 from setuptools import setup
+from pip.req import parse_requirements
+
+REQ_GEN = parse_requirements('requirements.txt', session='hack')
+INSTALL_REQS = [str(ir.req) for ir in REQ_GEN]
 
 
 def read(filename):
@@ -16,18 +20,20 @@ def read(filename):
 setup(
     name="imagewizard",
     version="0.1.0",
-    url="{{ imagewizard.package_url }}",
+    url="https://github.com/Swaroop-p/imagewizard",
     license='MIT',
 
     author="Swaroop Padala",
     author_email="soupspring47@gmail.com",
 
-    description="{{ imagewizard.package_description }}",
+    description="imagewizard is a python based library for performing various image manipulations and operations",
     long_description=read("README.rst"),
+
+    keywords = ['imagewizard', 'image hashing', 'hash', 'similarity', 'segmentation', 'image segmentation', 'image processing'],
 
     packages=find_packages(exclude=('tests','demo',)),
 
-    install_requires=[],
+    install_requires=INSTALL_REQS,
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',

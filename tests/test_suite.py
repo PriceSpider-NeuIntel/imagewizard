@@ -22,4 +22,3 @@ if __name__ == '__main__':
     # create test runner and run all the tests in test suite
     TEST_RUNNER = unittest.TextTestRunner()
     TEST_RESULTS = TEST_RUNNER.run(BIG_SUITE)
-    print(TEST_RESULTS)
