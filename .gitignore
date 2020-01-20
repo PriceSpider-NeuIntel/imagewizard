@@ -37,3 +37,5 @@ nosetests.xml
 .vscode/settings.json
 
 demo/data/all_images
+demo/data/results
+demo/data/sample_images
