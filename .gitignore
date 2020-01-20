@@ -35,3 +35,5 @@ nosetests.xml
 .project
 .pydevproject
 .vscode/settings.json
+
+demo/data/all_images
