@@ -23,8 +23,8 @@ def read(filename):
 
 
 setup(
-    name="py-imagewizard",
-    version="0.1.4",
+    name="imagewizard",
+    version="0.1.3",
     url="https://github.com/PriceSpider-NeuIntel/imagewizard",
     license='MIT',
 
@@ -38,7 +38,7 @@ setup(
 
     packages=find_packages(exclude=('tests','demo',)),
 
-    install_requires=['numpy==1.17.4', 'opencv-python==4.1.2.30', 'PyWavelets==1.1.1', 'pylint==2.4.4', 'scikit-learn==0.22.1', 'scipy==1.4.0', 'Pillow==6.2.1'],
+    install_requires=['numpy>=1.17.4', 'opencv-python>=4.1.2.30', 'PyWavelets>=1.1.1', 'pylint>=2.4.4', 'scikit-learn>=0.22.1', 'scipy>=1.4.0', 'Pillow>=6.2.1'],
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
