@@ -24,7 +24,7 @@ def read(filename):
 
 setup(
     name="py-imagewizard",
-    version="0.1.2",
+    version="0.1.4",
     url="https://github.com/PriceSpider-NeuIntel/imagewizard",
     license='MIT',
 
