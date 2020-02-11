@@ -893,7 +893,7 @@ Original          Trimmed Image
 ================  =================
 
 
-Source hosted at github: https://github.com/Swaroop-p/imagewizard
+Source hosted at github: https://github.com/PriceSpider-NeuIntel/imagewizard/
 
 .. _a Hash: http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
 .. _p Hash: http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
