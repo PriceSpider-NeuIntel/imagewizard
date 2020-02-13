@@ -4,12 +4,12 @@ import re
 
 from setuptools import find_packages
 from setuptools import setup
-from pip.req import parse_requirements
+# from pip.req import parse_requirements
 
 import pathlib
 
-REQ_GEN = parse_requirements('requirements.txt', session='hack')
-INSTALL_REQS = [str(ir.req) for ir in REQ_GEN]
+# REQ_GEN = parse_requirements('requirements.txt', session='hack')
+# INSTALL_REQS = [str(ir.req) for ir in REQ_GEN]
 HERE = pathlib.Path(__file__).parent
 
 README = (HERE / "README.rst").read_text()
@@ -24,7 +24,7 @@ def read(filename):
 
 setup(
     name="imagewizard",
-    version="0.1.6",
+    version="0.1.2",
     url="https://github.com/PriceSpider-NeuIntel/imagewizard",
     license='MIT',
 
