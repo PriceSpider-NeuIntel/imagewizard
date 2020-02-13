@@ -1,6 +1,8 @@
 imagewizard
 -----------
 
+Source hosted at github: https://github.com/PriceSpider-NeuIntel/imagewizard/
+
 imagewizard is a python based library for performing various image manipulations and operations,
 
 1. `Image Hashing <https://github.com/Swaroop-p/imagewizard#image-hashing>`_
@@ -892,8 +894,6 @@ Original          Trimmed Image
 |san_disk_org|    |san_disk_trim|
 ================  =================
 
-
-Source hosted at github: https://github.com/PriceSpider-NeuIntel/imagewizard/
 
 .. _a Hash: http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
 .. _p Hash: http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
