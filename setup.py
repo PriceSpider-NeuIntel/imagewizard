@@ -4,6 +4,7 @@ import re
 
 from setuptools import find_packages
 from setuptools import setup
+from distutils.util import convert_path
 # from pip.req import parse_requirements
 
 import pathlib
@@ -13,6 +14,11 @@ import pathlib
 HERE = pathlib.Path(__file__).parent
 
 README = (HERE / "README.rst").read_text()
+
+main_ns = {}
+ver_path = convert_path('imagewizard/version.py')
+with open(ver_path) as ver_file:
+    exec(ver_file.read(), main_ns)
 
 
 def read(filename):
@@ -24,7 +30,7 @@ def read(filename):
 
 setup(
     name="imagewizard",
-    version="0.1.2",
+    version=main_ns['__version__'],
     url="https://github.com/PriceSpider-NeuIntel/imagewizard",
     license='MIT',
 

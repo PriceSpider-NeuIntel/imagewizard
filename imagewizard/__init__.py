@@ -4,6 +4,6 @@ from imagewizard.image_hashing import *
 from imagewizard.image_hash_similarity import *
 from imagewizard.image_processsing import *
 from imagewizard.image_analysis import *
+from mymodule.version import __version__
 
-__version__ = '0.1.0'
 __author__ = 'Swaroop Padala <soupspring47@gmail.com>'

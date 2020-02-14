@@ -1,7 +1,7 @@
 on: 
   push:
-    branches:
-      - master
+    tags: 
+      - v*.*.*
 name: Publish Python distributions to PyPI
 jobs:
   build-n-publish:
