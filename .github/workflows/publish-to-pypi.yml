@@ -1,3 +1,7 @@
+# This workflow gets triggered on push of a tagged commit in the format v*.*.*
+# Set the right version number in imagewizard/version.py before adding a tag to a commit
+# Commit the changes, add tag and push the commit and tag to github
+# The package will be built and published in PyPi with the version number
 on: 
   push:
     tags: 
