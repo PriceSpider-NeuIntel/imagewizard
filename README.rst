@@ -5,38 +5,38 @@ Source hosted at github: https://github.com/PriceSpider-NeuIntel/imagewizard/
 
 imagewizard is a python based library for performing various image manipulations and operations,
 
-1. `Image Hashing <https://github.com/Swaroop-p/imagewizard#image-hashing>`_
-      * `Average Hashing <https://github.com/Swaroop-p/imagewizard#average-hash-a-hash>`_
-      * `Distance Hashing <https://github.com/Swaroop-p/imagewizard#distance-hash-d-hash>`_
-      * `Perception Hashing <https://github.com/Swaroop-p/imagewizard#perception-hash-p-hash>`_
-      * `Wavelet Hashing <https://github.com/Swaroop-p/imagewizard#wavelet-hash-w-hash>`_
+1. `Image Hashing <https://github.com/PriceSpider-NeuIntel/imagewizard#image-hashing>`_
+      * `Average Hashing <https://github.com/PriceSpider-NeuIntel/imagewizard#average-hash-a-hash>`_
+      * `Distance Hashing <https://github.com/PriceSpider-NeuIntel/imagewizard#distance-hash-d-hash>`_
+      * `Perception Hashing <https://github.com/PriceSpider-NeuIntel/imagewizard#perception-hash-p-hash>`_
+      * `Wavelet Hashing <https://github.com/PriceSpider-NeuIntel/imagewizard#wavelet-hash-w-hash>`_
 
-2. `Image Similarity (hash distance computation) <https://github.com/Swaroop-p/imagewizard#image-similarity-hash-distance>`_
-      * `Hamming Distance <https://github.com/Swaroop-p/imagewizard#hamming-distance>`_
-      * `Cosine Distance <https://github.com/Swaroop-p/imagewizard#cosine-distance>`_
-      * `Euclidean Distance <https://github.com/Swaroop-p/imagewizard#euclidean-distance>`_
-      * `Manhattan Distance <https://github.com/Swaroop-p/imagewizard#manhattan-distance>`_
-      * `Jaccard Distance <https://github.com/Swaroop-p/imagewizard#jaccard-distance>`_
-      * `Minkowski Distance <https://github.com/Swaroop-p/imagewizard#minkowski-distance>`_
+2. `Image Similarity (hash distance computation) <https://github.com/PriceSpider-NeuIntel/imagewizard#image-similarity-hash-distance>`_
+      * `Hamming Distance <https://github.com/PriceSpider-NeuIntel/imagewizard#hamming-distance>`_
+      * `Cosine Distance <https://github.com/PriceSpider-NeuIntel/imagewizard#cosine-distance>`_
+      * `Euclidean Distance <https://github.com/PriceSpider-NeuIntel/imagewizard#euclidean-distance>`_
+      * `Manhattan Distance <https://github.com/PriceSpider-NeuIntel/imagewizard#manhattan-distance>`_
+      * `Jaccard Distance <https://github.com/PriceSpider-NeuIntel/imagewizard#jaccard-distance>`_
+      * `Minkowski Distance <https://github.com/PriceSpider-NeuIntel/imagewizard#minkowski-distance>`_
 
-3. `Image Processing and Transformations <https://github.com/Swaroop-p/imagewizard#image-processing--transformations>`_
-      * `Segmentation <https://github.com/Swaroop-p/imagewizard#segmentation>`_
-      * `Resize/scale <https://github.com/Swaroop-p/imagewizard#resize>`_
-      * `Convert to gray scale <https://github.com/Swaroop-p/imagewizard#gray-scale>`_
-      * `Rotate <https://github.com/Swaroop-p/imagewizard#rotate>`_
-      * `Crop <https://github.com/Swaroop-p/imagewizard#crop>`_
-      * `Mirror <https://github.com/Swaroop-p/imagewizard#mirror>`_
-      * `Blur <https://github.com/Swaroop-p/imagewizard#blur>`_
-      * `Luminosity (Brightness) <https://github.com/Swaroop-p/imagewizard#luminosity>`_
-      * `Skew <https://github.com/Swaroop-p/imagewizard#skew---perspective>`_
-         * `Perspective <https://github.com/Swaroop-p/imagewizard#skew---perspective>`_
-         * `Affine <https://github.com/Swaroop-p/imagewizard#skew---affine>`_
+3. `Image Processing and Transformations <https://github.com/PriceSpider-NeuIntel/imagewizard#image-processing--transformations>`_
+      * `Segmentation <https://github.com/PriceSpider-NeuIntel/imagewizard#segmentation>`_
+      * `Resize/scale <https://github.com/PriceSpider-NeuIntel/imagewizard#resize>`_
+      * `Convert to gray scale <https://github.com/PriceSpider-NeuIntel/imagewizard#gray-scale>`_
+      * `Rotate <https://github.com/PriceSpider-NeuIntel/imagewizard#rotate>`_
+      * `Crop <https://github.com/PriceSpider-NeuIntel/imagewizard#crop>`_
+      * `Mirror <https://github.com/PriceSpider-NeuIntel/imagewizard#mirror>`_
+      * `Blur <https://github.com/PriceSpider-NeuIntel/imagewizard#blur>`_
+      * `Luminosity (Brightness) <https://github.com/PriceSpider-NeuIntel/imagewizard#luminosity>`_
+      * `Skew <https://github.com/PriceSpider-NeuIntel/imagewizard#skew---perspective>`_
+         * `Perspective <https://github.com/PriceSpider-NeuIntel/imagewizard#skew---perspective>`_
+         * `Affine <https://github.com/PriceSpider-NeuIntel/imagewizard#skew---affine>`_
          
-4. `Image Analysis <https://github.com/Swaroop-p/imagewizard#image-analysis>`_
-      * `Dominant colors <https://github.com/Swaroop-p/imagewizard#dominant-colors>`_
-      * `Average/Mean Color <https://github.com/Swaroop-p/imagewizard#averagemean-color>`_
-      * `Frequent/Mode Color <https://github.com/Swaroop-p/imagewizard#frequent-color>`_
-      * `Trim/Crop to content <https://github.com/Swaroop-p/imagewizard#trimcrop-to-content>`_
+4. `Image Analysis <https://github.com/PriceSpider-NeuIntel/imagewizard#image-analysis>`_
+      * `Dominant colors <https://github.com/PriceSpider-NeuIntel/imagewizard#dominant-colors>`_
+      * `Average/Mean Color <https://github.com/PriceSpider-NeuIntel/imagewizard#averagemean-color>`_
+      * `Frequent/Mode Color <https://github.com/PriceSpider-NeuIntel/imagewizard#frequent-color>`_
+      * `Trim/Crop to content <https://github.com/PriceSpider-NeuIntel/imagewizard#trimcrop-to-content>`_
 
 Image Hashing
 =============
@@ -230,17 +230,17 @@ Image Processing & Transformations
 
 imagewizard provides the following image processing and transformations
 
-* `Segmentation <https://github.com/Swaroop-p/imagewizard#segmentation>`_
-* `Resize/scale <https://github.com/Swaroop-p/imagewizard#resize>`_
-* `Convert to gray scale <https://github.com/Swaroop-p/imagewizard#gray-scale>`_
-* `Rotate <https://github.com/Swaroop-p/imagewizard#rotate>`_
-* `Crop <https://github.com/Swaroop-p/imagewizard#crop>`_
-* `Mirror <https://github.com/Swaroop-p/imagewizard#mirror>`_
-* `Blur <https://github.com/Swaroop-p/imagewizard#blur>`_
-* `Luminosity (Brightness) <https://github.com/Swaroop-p/imagewizard#luminosity>`_
-* `Skew <https://github.com/Swaroop-p/imagewizard#skew---perspective>`_
-      * `Perspective <https://github.com/Swaroop-p/imagewizard#skew---perspective>`_
-      * `Affine <https://github.com/Swaroop-p/imagewizard#skew---affine>`_
+* `Segmentation <https://github.com/PriceSpider-NeuIntel/imagewizard#segmentation>`_
+* `Resize/scale <https://github.com/PriceSpider-NeuIntel/imagewizard#resize>`_
+* `Convert to gray scale <https://github.com/PriceSpider-NeuIntel/imagewizard#gray-scale>`_
+* `Rotate <https://github.com/PriceSpider-NeuIntel/imagewizard#rotate>`_
+* `Crop <https://github.com/PriceSpider-NeuIntel/imagewizard#crop>`_
+* `Mirror <https://github.com/PriceSpider-NeuIntel/imagewizard#mirror>`_
+* `Blur <https://github.com/PriceSpider-NeuIntel/imagewizard#blur>`_
+* `Luminosity (Brightness) <https://github.com/PriceSpider-NeuIntel/imagewizard#luminosity>`_
+* `Skew <https://github.com/PriceSpider-NeuIntel/imagewizard#skew---perspective>`_
+      * `Perspective <https://github.com/PriceSpider-NeuIntel/imagewizard#skew---perspective>`_
+      * `Affine <https://github.com/PriceSpider-NeuIntel/imagewizard#skew---affine>`_
 
 
 Segmentation
@@ -760,7 +760,7 @@ Original       Clustered Image  Color 1          Color 2          Color 3
 |lenna_org|    |clustered_im|   |cv_dom_c0|      |cv_dom_c1|      |cv_dom_c2|                        
 =============  ================ ================ ================ ================
 
-* The Clustered Image can be constructed with `Segmentation <https://github.com/Swaroop-p/imagewizard#segmentation>`_ method of imagewizard
+* The Clustered Image can be constructed with `Segmentation <https://github.com/PriceSpider-NeuIntel/imagewizard#segmentation>`_ method of imagewizard
 
 >>> print("PIL image - dominant colors (RGB) : ", img_pil_result)
 PIL image - dominant colors (RGB) : [[224 166 147]
