@@ -26,7 +26,7 @@ class TestAnalysis(unittest.TestCase):
     trim_test = im_analysis.trim_to_content(quiet_flow_org, 'bgr')
 
     # dominant color test
-    dominant_actual = np.asarray([[224, 166, 147],[110, 34, 71], [195, 98, 100]])
+    dominant_actual = np.asarray([[223, 163, 144], [108,  33,  71], [193,  95,  99]])
     dominant_test = im_analysis.dominant_colors(lenna_org, 3, 'bgr')
 
     def test_mean(self):
