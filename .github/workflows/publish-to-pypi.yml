@@ -2,6 +2,14 @@
 # Set the right version number in imagewizard/version.py before adding a tag to a commit
 # Commit the changes, add tag and push the commit and tag to github
 # The package will be built and published in PyPi with the version number
+
+# Example -
+# $ git add <files_to_add>
+# $ git commit . -m "<message>"
+# $ git tag -a v1.0.2 -m "Using Opencv_contrib"
+# $ git push --tags
+# $ git push origin master
+
 on: 
   push:
     tags: 
