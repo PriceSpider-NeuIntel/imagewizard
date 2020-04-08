@@ -1,5 +1,6 @@
 import cv2 as cv
 import PIL
+from PIL import JpegImagePlugin # required for JpegImagePlugin Check below
 import numpy as np
 
 
