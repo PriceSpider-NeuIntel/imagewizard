@@ -44,7 +44,7 @@ setup(
 
     packages=find_packages(exclude=('tests','demo',)),
 
-    install_requires=['numpy', 'opencv-python', 'PyWavelets', 'pylint', 'scikit-learn', 'scipy', 'Pillow'],
+    install_requires=['numpy', 'opencv-contrib-python', 'PyWavelets', 'pylint', 'scikit-learn', 'scipy', 'Pillow'],
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
